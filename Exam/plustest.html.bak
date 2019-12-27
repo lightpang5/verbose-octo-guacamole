@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	<form action="AdderServlet">
+		첫 번째 수: <input type = text name =NUM1><br>
+		두 번째 수: <input type = text name = NUM2><br>
+		<input type = submit value='더하기'>
+	</form>
+ </body>
+</html>

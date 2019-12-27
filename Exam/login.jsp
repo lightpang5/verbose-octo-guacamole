@@ -1,0 +1,29 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<html>
+ <head>
+
+  <title>로그인 </title>
+ </head>
+ <body>
+	<h2>로그인 예제</h2>
+	<%
+	request.setCharacterEncoding("utf-8");
+	String userid = request.getParameter("userid");
+	String passwd = request.getParameter("passwd");
+	%>
+	<%
+	if(userid.equals("")){
+		%>
+			<jsp:include page = "loginhandle.jsp">
+				<jsp:param name ="userid" value="guest"/>
+				<jsp:param name ="passwd" value="anonymous"/>
+			</jsp:include>
+	<%
+	}else{
+	%>
+			<jsp:include page="loginhandle.jsp"/>
+	<%
+	}
+	%>
+ </body>
+</html>

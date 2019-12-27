@@ -1,0 +1,11 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name>servletTest2</servlet-name>
+        <servlet-class>AdderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletTest2</servlet-name>
+        <url-pattern>/plustest</url-pattern>
+    </servlet-mapping>
+ 
+</web-app> 
