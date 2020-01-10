@@ -1,0 +1,12 @@
+https://blog.mybatis.org/
+
+
+alter table 테이블명 convert to character set utf8;
+
+
+?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8
+
+
+
+
+"jdbc:mysql://localhost:3306/userinfo?useSSL=false&useUnicode=true&characterEncoding=utf8","root","1988a1023"
