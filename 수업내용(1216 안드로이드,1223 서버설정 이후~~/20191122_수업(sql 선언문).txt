@@ -1,0 +1,107 @@
+\\206-t
+administrator
+green1005
+
+
+변수는 최대한 소문자로 ! 그리고 세미콜론 (;) 항상 붙이고.
+전자정보 프레임워크 ( 공통 규격을 줄테니 그대로 만들어서 제출해라)
+
+
+
+eclipse 사용법
+1) 프로젝트 만들기 (project name 과 class name 은 다르다 !)
+2) 프로젝트 위에 마우스 올리고 클래스 생성   (클래스 파일 생성 후 메소드 앞에 아무것도 안쓰고 default 되면
+						( 같은 default package, 패키지 내에서 다른 자바에서도 호출 가능.)
+
+database -> SQL  ->서버  운영체제(리눅스 : java->jsp) :  Oracle, mysql
+  mssql(윈도우:c->asp) 
+
+[설치단계]
+mysql.com -> 		downloads. MySQL Community (GPL) Downloads -> mysql installer 
+라이브러리 설치  						->  이전버전 Connector/J
+bin . jar 알집 복사해서 jdk 폴더로 이동. lib  안에 붙여넣기 !.
+프로젝트 잡아서 마우스 오른쪽 후에 맨밑에 Properties -> Java Build Path 이동 -> Add External JARs 클릭 후 
+라이브러리 안에 JARS 를 클릭 !
+
+
+NoSQL : 해쉬 매핑
+
+
+
+**오늘 수업을 통해 시스템을 종료해도 DB가 남아있으니 얼마나 효율적으로 설계가 가능한가 ** 
+
+
+
+
+
+
+DB라는 큰 틀 테두리 안에 Table 이 여러개 있다.
+[DB 접근]
+
+show databases;
+
+use db명;  //그 DB에 접근하겠다. 사용혹은조회하고 싶은 db로 우선 이동 ! 1))).
+[DB 접근 후 Table 조회]
+show tables; // 접근한 DB의 table들을 보겠다.
+
+[DB 생성]
+
+create, alter, drop  // 정의어 종류  3개.
+
+create database 이름;  // DB 생성
+
+[table 생성]
+	        {table 이름}         {속성}            {속성}
+create table      테이블이름 ( 필드명 varchar(20), 필드명 int);
+
+
+desc  테이블명; // int (11)에 11은 1,10,100,1000 .... 11자리 들어간다.
+
+
+select * from 테이블; // 별 표 * 전체 출력, * 대신 필드 입력하면 해당필드만! // where 추가가능
+
+[지난번 파일 입출력 팀별과제 낸 것]
+회원관리를 위한 테이블 생성.
+	생성 완료.
+
+[자료 삽입]						int 형은 ''없이
+ppt 10번 참고		{필드명(속성),필드명...} values  {필드명(속성),필드명...}
+insert 	into	 테이블명 (회원ID,2,3,4) values		('hong',2,3,4);
+(( 자료 삽입 후에 다시 자료 삽입하면 밑으로 쌓인다.))
+
+{ insert into 는 ResultSet 이 불가능 insert 하면 들어가긴 하지만 무언가 출력되지 않기때문에 !
+
+[자료 삭제] - 무슨 필드만 지우는건 불가능 한 튜플 자체를 다 삭제.
+delete from 테이블명; // 다 삭제
+delete from 테이블명 where 필드명=해당하는이름 ;  ( ex : where 이름=홍길동;) // varchar는 '홍길동'
+update 테이블명 set 주소=제주 where 이름=홍길동;  
+update 테이블명 set 필드명 = 'ㅇㅇ',필드명='ㅇㅇ' where 필드명='ㅇㅇ';
+
+
+
+가입==입력(중복확인), 검색(본인이 맞는지), 전체출력, 삭제, 종료
+
+
+////////////////////////////////
+
+DTO         -
+
+
+
+DAO          - Data Access Object (데이터를 insert select update 하는걸 다른곳에 뺀다.)
+		
+			 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

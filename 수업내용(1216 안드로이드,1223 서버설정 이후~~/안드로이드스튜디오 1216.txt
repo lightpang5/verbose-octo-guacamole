@@ -1,0 +1,9 @@
+LinearLayout
+andorid:orientation="horizontal">
+android:orientation="vertical">
+
+Toast.makeText(getApplicationContext(),"Hi",Toast.LENGTH_SHORT).show();
+위젯은 findViewById 로 무조건 데려와야한다..
+
+
+ 

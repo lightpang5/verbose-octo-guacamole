@@ -1,0 +1,111 @@
+20-01-13 월요일
+
+안드로이드스튜디오에서 db처리 어떻게?
+
+모듈 UI디자인
+
+p.10
+모바일 앱의 유형 
+(1)모바일웹 앱
+	그냥 html문서 만들어서 모바일 화면에 맞추는것
+
+(2)하이브리드 앱
+	html페이지를 어플인것처럼 속이는것(네이버어플)
+
+(3)네이티브 앱
+	순수 어플, 모바일OS에 맞게 정확하게 만드는것 (우리가 만드는것)
+
+모바일 안에서는 jsp페이지를 못 본다*
+	 왜? jdk가 필요하니까
+
+안드로이드스튜디오 켜고
+새 프로젝트 만들고
+build.gradle에서 7.28로 바꾸고
+버튼 두개 만들고
+java에서 버튼 두개 가져와서 클릭이벤트 걸고
+예제 써준걸 그대로 넣는다.
+
+Button btn1 = (Button)findViewById(R.id.button);
+        Button btn2 = (Button)findViewById(R.id.button2);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    FileOutputStream outFs = openFileOutput("file.txt",Context.MODE_PRIVATE);
+                    String str = "안드로이드";
+                    outFs.write(str.getBytes());
+                    outFs.close();
+                    Toast.makeText(getApplicationContext(),"file.txt가 생성됨",Toast.LENGTH_SHORT).show();
+                }catch(IOException e){
+
+                }
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try{
+                    FileInputStream inFs = openFileInput("file.txt");
+                    byte[] txt = new byte[30];
+                    inFs.read(txt);
+                    String str = new String(txt);
+                    Toast.makeText(getApplicationContext(),str,Toast.LENGTH_SHORT).show();
+                    inFs.close();
+                }catch (IOException e){
+                    Toast.makeText(getApplicationContext(),"파일 없음",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+SQLite
+java페이지 안에서 db를 만들어야한다. 그래야 폰에 저장해두고 나중에 꺼내쓴다.
+
+예제2
+레이아웃 사진처럼 만들고
+다 불러오고 
+이너클래스 만들어서 sql실행문장 씀
+
+final EditText name = (EditText)findViewById(R.id.editText);
+        final EditText count = (EditText)findViewById(R.id.editText2);
+        Button reset = (Button)findViewById(R.id.button5);
+        Button input = (Button)findViewById(R.id.button4);
+        Button select = (Button)findViewById(R.id.button3);
+        textView = (TextView)findViewById(R.id.textView3);
+
+
+        //dbhelper
+        class myDBHelper extends SQLiteOpenHelper{
+            public myDBHelper(Context context){
+                super(context,"groupDB",null,1);
+            }
+            @Override
+            public void onCreate(SQLiteDatabase db){
+                db.execSQL("CREATE TABLE grouptable( gName CHAR(20), gNumber INTEGER);");
+            }
+            @Override
+            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+                db.execSQL("DROP TABLE IF EXISTS grouptable");
+                onCreate(db);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+public void onCreate(Bundle savedInstanceState){
+	super.onCreate(savedInstanceState);
+
+	myDBHelper my Helper = new my DBHelper(this);
+	btnInit.setOnClickListener(new View.OnClickListener(){
+		public void onClick(View v){
+			sqlDB=
