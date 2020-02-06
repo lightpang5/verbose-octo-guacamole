@@ -1,0 +1,52 @@
+1. 성별이 여자인 학생의 정보 검색
+SELECT * FROM student where substring(studentResidentNumber,8,1)='2';
+
+2. 생년월일이 1993년인 수강생 정보를 검색 >>> 수강 정보출력
+1) SELECT * FROM student where substring(studentResidentNumber,1,2)='93';
+2) select studentNumber, sugangCode from sugang where studentNumber=(SELECT studentNumber from student where substring(studentResidentNumber,1,2)='93');
+
+3.성이 '홍'이 아닌 강사의 정보검색
+1)SELECT *  FROM teacher where substring(teacherName,1,1)!='홍';
+2)!Like'_홍%'; 도 가능
+
+4. 강남구에 거주하는 강사의 정보 검색
+SELECT * FROM teacher where address like '____강남%';
+
+5. java를 강의하는 강사 정보 검색.
+SELECT * FROM teacher where sugangCode=(select sugangCode from subject where subject='java');
+
+6.주소가 NULL이 아닌 강사의 정보검색.
+SELECT * FROM teacher where address!='';
+
+7.sql 수업을 수강하고 있는 학생의 정보를 검색.
+SELECT * FROM student where studentNumber=(select studentNumber from sugang where sugangCode=(select sugangCode from subject where subjectname ='sql'));
+
+8.강사가 담당하는 과목과 그 과목이 어느 강의실에서 진행되며
+ 총 수용 인원이 몇명인지 출력 (메인은 강사 -> 과목 -> 수강과목 -> 강의실테이블)
+ 
+select * from 첫번째테이블
+	inner join 두번째테이블
+		on조건식
+
+우선 강사 담당과목, 강의실,총수용인원 세개 출력
+
+select teacher.teacherName,teacher.teacherNumber,teacher.sugangCode,subject.subjectname,room.capacity from teacher
+ inner join subject 
+ on teacher.sugangCode=subject.sugangCode
+ inner join sugangtb 
+ on subject.sugangCode=sugangtb.sugangCode
+ inner join room
+ on sugangtb.roomNumber=room.roomNumber;
+
+
+
+
+
+9. 학생의 이름, 주민번호, 성별을 출력(학생 테이블 안에서 해결 가능)
+select studentName,studentResidentNumber, if(substr(studentResidentNumber,8,1)='1','남','여') as 성별 from student;
+
+10. 강사 이름을 기준으로 오름차순으로 정렬하여 정렬된 순서대로 rownum이 출력되도록 하시오.
+1) set @ROWNUM:=0;
+select @ROWNUM:=@ROWNUM+1 as '강사번호', teacherName from teacher;
+
+2) select @ROWNUM:=@ROWNUM+1 as '강사번호', teacherName from teacher where (@ROWNUM:=0)=0;

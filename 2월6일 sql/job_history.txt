@@ -1,0 +1,89 @@
+CREATE TABLE job_history (    -- 업무변경이력 기록
+	employee_id INT UNSIGNED NOT NULL,
+	start_date DATE NOT NULL,
+	end_date DATE NOT NULL,
+	job_id VARCHAR(10) NOT NULL,
+	department_id INT UNSIGNED NOT NULL
+	);
+
+INSERT INTO job_history 
+VALUES (
+	102,
+	STR_TO_DATE('13-Jan-1993', '%d-%M-%Y'),
+	STR_TO_DATE('24-Jul-1998', '%d-%M-%Y'),
+	'IT_PROG',
+	60
+	);
+INSERT INTO job_history 
+VALUES (
+	101,
+	STR_TO_DATE('21-Sep-1989', '%d-%M-%Y'),
+	STR_TO_DATE('27-Oct-1993', '%d-%M-%Y'),
+	'AC_ACCOUNT',
+	110
+	);
+INSERT INTO job_history 
+VALUES (
+	101,
+	STR_TO_DATE('28-Oct-1993','%d-%M-%Y'),
+	STR_TO_DATE('15-Mar-1997','%d-%M-%Y'),
+	'AC_MGR',
+	110
+	);
+INSERT INTO job_history 
+VALUES (
+	201,
+	STR_TO_DATE('27-Feb-1996','%d-%M-%Y'),
+	STR_TO_DATE('19-Dec-1999','%d-%M-%Y'),
+	'MK_REP',
+	20
+	);
+INSERT INTO job_history 
+VALUES (
+	114,
+	STR_TO_DATE('24-Mar-1998','%d-%M-%Y'),
+	STR_TO_DATE('31-Dec-1999','%d-%M-%Y'),
+	'ST_CLERK',
+	50
+	);
+INSERT INTO job_history 
+VALUES (
+	122,
+	STR_TO_DATE('01-Jan-1999','%d-%M-%Y'),
+	STR_TO_DATE('31-Dec-1999','%d-%M-%Y'),
+	'ST_CLERK',
+	50
+	);
+INSERT INTO job_history 
+VALUES (
+	200,
+	STR_TO_DATE('17-Sep-1987','%d-%M-%Y'),
+	STR_TO_DATE('17-Jun-1993','%d-%M-%Y'),
+	'AD_ASST',
+	90
+	);
+INSERT INTO job_history 
+VALUES (
+	176,
+	STR_TO_DATE('24-Mar-1998','%d-%M-%Y'),
+	STR_TO_DATE('31-Dec-1998','%d-%M-%Y'),
+	'SA_REP',
+	80
+	); 
+INSERT INTO job_history 
+VALUES (
+	176,
+	STR_TO_DATE('01-Jan-1999','%d-%M-%Y'),
+	STR_TO_DATE('31-Dec-1999','%d-%M-%Y'),
+	'SA_MAN',
+	80
+	);
+INSERT INTO job_history 
+VALUES (
+	200,
+	STR_TO_DATE('01-Jul-1994','%d-%M-%Y'),
+	STR_TO_DATE('31-Dec-1998','%d-%M-%Y'),
+	'AC_ACCOUNT',
+	90
+	);
+

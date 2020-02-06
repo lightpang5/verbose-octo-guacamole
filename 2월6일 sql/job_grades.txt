@@ -1,0 +1,48 @@
+CREATE TABLE job_grades (
+	grade_level VARCHAR(3),  
+    lowest_sal  DECIMAL(8, 0),  
+    highest_sal DECIMAL(8, 0)
+    );
+
+
+INSERT INTO Job_Grades 
+VALUES (
+	'A', 
+    1000, 
+    2999
+    );
+    
+INSERT INTO Job_Grades 
+VALUES (
+	'B', 
+    3000, 
+    5999
+    );
+    
+INSERT INTO Job_Grades 
+VALUES (
+	'C', 
+    6000, 
+    9999
+    );
+    
+INSERT INTO Job_Grades 
+VALUES (
+	'D', 
+    10000, 
+    14999
+    );
+    
+INSERT INTO Job_Grades 
+VALUES (
+	'E', 
+    15000, 
+    24999
+    );
+    
+INSERT INTO Job_Grades 
+VALUES (
+	'F', 
+    25000, 
+    40000
+    );

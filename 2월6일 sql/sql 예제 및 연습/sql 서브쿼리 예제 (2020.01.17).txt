@@ -1,0 +1,35 @@
+1 ) 급여가 3000이상인 사원과 같은 dept_id를 가진 사원들의 정보
+
+select 해야 하는 것은 사원들의 정보
+
+where 에는 dept_id 에 대한 조건
+
+dept_id 는 급여가 3000이상인 사람들의 dept_id 를 이용
+
+급여가 3000이상인 사람들의 dept_id 에 대해서 그룹으로 묶어준다 ?
+
+select * from grade.emp where dept_id in(SELECT dept_id FROM grade.emp where sal>=3000) ;
+
+2 ) 
+급여를 가장 많이 받는 사원보다 더 많은 급여를 받는 사람의 정보검색
+부서번호가 300이면서 급여를 가장많이 받는 사원의 급여 출력.
+>> 급여를 가장 많이 받는 ?
+
+
+select * from grade.emp where sal>(select max(sal) from grade.emp where dept_id=300);
+
+3)
+
+4) select * from emp where sal>=(select sal from emp emp_name='정동길');
+
+5)부서명과 부서번호는 dept 에서 뽑고 emp 테이블에서 
+select dept_id, dname from dept where dept_id in(
+select dept_id from emp where job='사무직');
+
+
+
+
+11) 1. 사원의 정보 어떤정보 ? 각부서의 평균급여보다 급여가 많은.
+
+
+
