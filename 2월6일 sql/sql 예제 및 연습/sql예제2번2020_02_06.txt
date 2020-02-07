@@ -1,11 +1,14 @@
  1.사원정보 테이블(EMPLOYEES)에서 사원번호, 이름, 급여, 업무, 입사일, 상사의 사원번호 출력,
 이름은 성과 이름을 연결하여 Name 이라는 별칭으로 출력
+[resultset rs = String.formate()
+if(rs.next())
+rs.getString(필드명) >> 별칭을 이용해서 필드명에 Name 으로 뽑을 수 있다. 실제 존재필드는 아니다
 
 --> SELECT employee_id,concat(last_name,' ',first_name) as Name, salary, job_id, hire_date,manager_id FROM employees;
 
  2. 사원정보(EMPLOYEES) 테이블에서 사원의 성과 이름은 Name, 업무는 Job, 급여는 Salary, 연봉에 $100 보너스를 추가하여 계산한 값은 Increased Ann_Salary, 급여에 $100 보너스를 추가하여 계산한 연봉은 IncreasedSalary 라는 별칭으로 출력
 
---> SELECT concat(last_name,' ',first_name) as Name, job_id as Job, salary , salary*12+100 as IncreasedAnn_Salary, salary+100 as IncreasedSalary FROM employees;
+--> SELECT concat(last_name,' ',first_name) as Name, job_id as Job, salary , (salary*12+100) as 'IncreasedAnn_Salary', (salary+100) as 'IncreasedSalary' FROM employees;
 
  3. 사원정보(EMPLOYEES) 테이블에서 모든 사원의 이름(last_name)과 연봉을 
 "이름: 1 Year Salary = $연봉" 형식으로 출력하고, "1 Year Salary"라는 별칭을 붙여 출력하시오
@@ -41,6 +44,7 @@
 --> select concat(first_name,' ',last_name) as Name, salary, if(commission_pct is null,'Salary only','Salary + Commission') as CommissionStatus, salary*12 as 'Ann_Salary' from employees order by Ann_Salary desc;
 
  11. 모든 사원들 성과 이름(Name 으로 별칭) ,입사일 그리고 입사일이 어떤 요일이었는지 출력하시오 이때 주(week)의 시작인 일요일부터 출력되도록 정렬하시오.
+[select 이름, 입사일, date_format(입사일,'%W') from 사원정보 order by date_fromat(hire_date,'%w');]
 
 -->  select concat(first_name,' ',last_name) as Name, hire_date, case DAYOFWEEK(hire_date)
     when '1' then 'sunday'
@@ -56,7 +60,7 @@
 
 --> select count(distinct(manager_id)) as BossCount from employees;
 
- 13. 각 사원이 소속된 부서별로 급여 합계, 급여 평균, 급여 최대값, 급여 최소값을 집계하고자 한다  계산된 출력값은 6자리와 세자리 구분기호, $ 표시와 함께 출력하고 부서번호의 오름차순 정렬하시오. 단, 부서에 소속되지 않은 사원에 대한 정보는 제외하고 출력시 머리글은 아래 예시처럼 별칭(alias)처리하시오. 
+ 13. 각 사원이 소속된 부서별로 급여 합계, 급여 평균, 급여 최대값, 급여 최소값을 집계하고자 한다  계산된 출력값은 6자리와 세자리 구분기호, $ 표시와 함께 출력하고 부서번호의 오름차순 정렬하시오. 단, 부서에 소속되지 않은 사원에 대한 정보는 제외하고 출력시 머리글은 아래 예시처럼 별칭(alias)처리하시오. [대충해서 뭔가 이상함 formate(sum(급여),0)  ..사용]
 
 --> select  department_id,sum(salary),avg(salary),max(salary),min(salary) from employees group by department_id having department_id is not null;
 
@@ -70,11 +74,38 @@
 
 16. 사원의 급여 정보 중 업무별 최소 급여를 받고 있는 사원의 성과 이름(Name), 업무, 급여, 입사일을 출력하시오.
 
---> select  concat(first_name,' ',last_name) as Name, job_id, min(salary),hire_date from employees group by job_id ;
+--> select  concat(first_name,' ',last_name) as Name, job_id, min(salary),hire_date from employees group by job_id ; >> 19개 즉 같은 부서이면서 같은 최저급여이면 한명이 생략
+--> select  concat(first_name,' ',last_name) as Name, job_id, salary, hire_date from employees aa where salary in (select min(salary) from employees bb where aa.job_id=bb.job_id group by job_id) ;
  
- 17. 소속 부서의 평균 급여보다 많은 급여를 받는 사원에 대하여 사원의 성과 이름(Name으로 별칭), 급여, 부서번호, 업무를 출력하시오.
+ 17. 소속 부서의 평균 급여보다 많은 급여를 받는 사원에 대하여 사원의 성과 이름(Name으로 별칭), 급여, 부서번호, 업무를 출력하시오.[수정해야함 !]
 
--->   
+-->  select  concat(first_name,' ',last_name) as Name, salary,department_id,job_id,avg(salary) from employees group by department_id having salary>avg(salary);
+
+-->  select  concat(first_name,' ',last_name) as Name, salary,department_id,job_id,avg(salary) 
+from employees aa where salary>(select avg(salary) from employees bb where aa.department_id=bb.department_id) group by department_id;   >>>> 수정 
+
+ 18. 사원들의 지역별 근무 현황을 조회하고자 한다. 도시 이름이 영문 'O' 로 시작하는 지역에 살고 있는 사원의 사번, 이름, 업무, 입사일을 출력하시오.
+
+--> SELECT employee_id,concat(first_name,' ',last_name) as Name,job_id,hire_date FROM employees 
+where department_id=(select departments.department_id from departments 
+where departments.location_id=(select locations.location_id from locations where city like 'O%'));
+
+ 19. 모든 사원의 소속부서 평균연봉을 계산하여 사원별로 성과 이름(Name으로 별칭), 업무, 급여, 부서번호, 부서 평균연봉(Department Avg Salary로 별칭) 을 출력하시오.
+
+--> select  concat(first_name,' ',last_name) as Name, job_id, salary,department_id,(select avg(salary) from employees bb where aa.department_id=bb.department_id group by department_id) as 'Department Avg Salary' from employees aa ;
+
+ 20. HR 부서에서는 신규프로젝트의 성공으로 해당하는 각 업무 자들에 대한 급여 인상안을 결정하고 다음과 같이 업무 별 급여 인상에 대해 적용하고자 한다. 현재 107명의 사원은 19개의 업무에 소속되어 근무 중이다. (Distinct job_id) 이 중 5개의 업무 자들에 대한 급여 인상이 각각 결정. 나머지 업무에 대해서는 인상이 동결. [미해결]
+
+--> select concat(first_name,' ',last_name) as Name,job_id, salary, (case job_id when 'FI_ACCOUNT' then (salary*1.1) when 'IT_PROG' then (salary*1.1) when 'PU_CLERK' then (salary*1.1) when 'ST_MAN' then (salary*1.1) when 'SA_MAN' then (salary*1.1)) from employees where job_id in(select job_id from employees);
+
+
+ 26.정보(Employees) 테이블에 JOB_ID는 사원의 현재 업무를 뜻하고, JOB_HISTORY 에 JOB_ID 는 사원의 이전 업무를 뜻한다. 이 두 테이블을 교차해보면 업무가 변경된 사원의 정보도 볼 수 있지만 이전에 한번 했던 같은 업무를 그대로 하고 있는 사원의 정보도 볼 수 있다. 이 전에 한 번 했던 같은 업무를 보고 있는 사원의 사번과 업무를 출력하시오.
+
+-->  
+
+
+
+
 
 
 
