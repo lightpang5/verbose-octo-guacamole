@@ -98,14 +98,48 @@ where departments.location_id=(select locations.location_id from locations where
 
 --> select concat(first_name,' ',last_name) as Name,job_id, salary, (case job_id when 'FI_ACCOUNT' then (salary*1.1) when 'IT_PROG' then (salary*1.1) when 'PU_CLERK' then (salary*1.1) when 'ST_MAN' then (salary*1.1) when 'SA_MAN' then (salary*1.1)) from employees where job_id in(select job_id from employees);
 
+ 22.
+
+--> select 부서id , sum(급여) as 급여합계, case when sum(급여) > 100000 then "Excellent"
+						when sum(급여) > 50000 then "Good"
+						when sum(급여) > 10000 then "Medium"
+					end
+from 사원정보 group by 부서id;
+
+ 23.(case 중첩)
+
+--> select 사원id, 급여,...
+	case
+		when 입사일 <'20000101' then
+
+			case
+				when 업무 like "%MGR%" then 급여 * 1.15
+				when 업무 like "%MAN%" then 급여 * 1.20
+			end
+		when 입사일 > '20000101' then
+			case
+				when 업무 like "%MGR%" then 급여 * 1.25
+			end
+		end
+	from 사원정보
+ **25.(합집합 >> union 알아서 중복 제거가 된다.) 
+
+--> select 업무id from 사원정보 union select 업무id from 업무이력
+
 
  26.정보(Employees) 테이블에 JOB_ID는 사원의 현재 업무를 뜻하고, JOB_HISTORY 에 JOB_ID 는 사원의 이전 업무를 뜻한다. 이 두 테이블을 교차해보면 업무가 변경된 사원의 정보도 볼 수 있지만 이전에 한번 했던 같은 업무를 그대로 하고 있는 사원의 정보도 볼 수 있다. 이 전에 한 번 했던 같은 업무를 보고 있는 사원의 사번과 업무를 출력하시오.
 
 -->  
 
 
+ 29.(where 은 전체조건 having 은 group 의 조건.)
 
+--> select 부서정보.부서명, count(사원정보.사원Id) from 사원정보, 부서정보 where 사원정보.부서 id = 부서정보.부서id 
+ group by 부서명 having count(*) >= 5 order by count(*) desc
 
+ 30. 
+
+--> select 사원정보.업무, 부서정보.부서명, 사원정보.입사일, 사원정보.급여, 급여.급여등급 from 사원정보,부서정보,급여 where 사원정보.부서id = 부서정보.부서id and 사원정보.급여 between lowest_sal and highest_sal
 
 
 
