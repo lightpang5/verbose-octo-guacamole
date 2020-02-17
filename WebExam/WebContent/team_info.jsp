@@ -645,7 +645,7 @@ li {
 						<p class="h_bar">팀 상세 정보</p>
 						<div class="table_wrap indi">
 							<table>
-								<caption>상세 정보 테블</caption>
+								<caption>상세 정보 테이블</caption>
 								<colgroup>
 									<col style="width:270px" class="w01">
 									<col style="width:255px" class="w02">
@@ -654,7 +654,7 @@ li {
 								<tbody>
 									<tr>
 										<td rowspan="4" class="pic">
-											<span class="pic emblem"><img src="/images/content/default_team.png" alt=""></span>
+											<span class="pic emblem"><img src="img/<%=TeamList.get(0).getT_logo() %>" alt=""></span>
 										</td>
 										<th scope="row">팀 생성일</th>
 										<td><%=TeamList.get(0).getT_birth() %></td>

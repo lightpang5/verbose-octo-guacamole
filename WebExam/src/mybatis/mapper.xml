@@ -16,4 +16,5 @@
 <select id="branchlist_view" parameterType="BranchDto" resultType="BranchDto">select * from branch_tb; </select>
 <select id="teamlist_view" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb; </select>
 <select id="teamone" parameterType="TeamDto" resultType="TeamDto">select * from teaminfo_tb  where T_CODE = #{t_code};</select>
+ <insert id="Teaminsert" parameterType="TeamDto">insert into teaminfo_tb (ID, T_NAME, T_CODE, T_LOGO, T_EMAIL, T_UNIFORM_HOME, T_UNIFORM_AWAY, T_CLASS) values(#{id},#{t_name},#{t_code},#{t_logo},#{t_email},#{t_uniform_home},#{t_uniform_away},#{t_class});</insert>
 </mapper>

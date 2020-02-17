@@ -3,11 +3,14 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import action.GalWriteProAction;
 @WebServlet("*.do")    
 public class ControllerServlet extends HttpServlet {
 
@@ -18,12 +21,12 @@ public class ControllerServlet extends HttpServlet {
 		String command = request.getParameter("command");
 		Cominterface inter = null;
 		String viewName = "";
-
+		
 		try {
 			if (command.equals("idcheck")) {
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out=response.getWriter();
-				inter = ConfirmIdService.instance();;
+				inter = ConfirmIdService.instance();
 				String count = inter.showData(request, response);
 				System.out.println("222");
 				String id = request.getParameter("id");
@@ -92,10 +95,21 @@ public class ControllerServlet extends HttpServlet {
 			}
 			else if(command.equals("teaminfo")){  //팀리스트  출력
 				System.out.println("teaminfo 출력");
-				inter = TeamInfo_Service.instance();
+				inter = TeamInfoService.instance();
 				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
+			else if(command.equals("team_regist")){
+				System.out.println("team regist 출력");
+				response.setContentType("text/html;charset=UTF-8");
+				inter = TeamRegistService.instance();
+				System.out.println("team regist 출력2");
+
+				viewName = inter.showData(request, response);
+				System.out.println("team regist 출력3");
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			
 			else if(command.equals("reservation_input")){ // 풋살장 대관
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out=response.getWriter();
@@ -111,6 +125,7 @@ public class ControllerServlet extends HttpServlet {
 				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
+			
 			else {
 				viewName = "error.html";
 				response.sendRedirect(viewName);

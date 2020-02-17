@@ -9,16 +9,31 @@ public class TeamDto {
 	int t_ranking;
 	String t_uniform_home;
 	String t_uniform_away;
-	Date t_birth;
+	Date t_birth;	
+	String t_class;
+	int league_result_code;
+	String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	String t_email;
+	
+	public String getT_email() {
+		return t_email;
+	}
+	public void setT_email(String t_email) {
+		this.t_email = t_email;
+	}
 	public Date getT_birth() {
 		return t_birth;
 	}
 	public void setT_birth(Date t_birth) {
 		this.t_birth = t_birth;
 	}
-	String t_class;
-	int league_result_code;
-	String t_id;
+	
 	public int getT_code() {
 		return t_code;
 	}
@@ -68,12 +83,7 @@ public class TeamDto {
 	public void setLeague_result_code(int league_result_code) {
 		this.league_result_code = league_result_code;
 	}
-	public String getT_id() {
-		return t_id;
-	}
-	public void setT_id(String t_id) {
-		this.t_id = t_id;
-	}
+	
 	
 	
 

@@ -46,7 +46,7 @@
 						<ul>
 							<li><a href="galist.bo">팀갤러리</a></li>
 							<li><a href="#">팀게시판</a></li>
-							<li><a href="#">팀관리</a></li>
+							<li><a href="teamlist.do?command=teamlist">팀관리</a></li>
 							<li><a href="#">팀가입</a></li>
 						</ul></li>
 					<li class="borderRightLeft"><a href="qna.jsp">고객센터</a>
@@ -111,7 +111,7 @@
 				<a id="navmid_2" class="slideDown" href="yonglist_1.jsp">용병등록</a>
 			
 			
-				<a id="navmid_3" class="slideDown" href="teamlist.do">팀원모집</a>
+				<a id="navmid_3" class="slideDown" href="teamlist.do?command=teamlist">팀원모집</a>
 		</div>
 	</header>
 </body>

@@ -18,7 +18,7 @@ session.setAttribute("url",url);
 	}
 	//수정부분 끝
 	//2020.01.14 로그인 id 수정
-	String yid = (String) session.getAttribute("id");
+	
 %>
 
 <%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) request.getAttribute("TeamList");%>
@@ -122,30 +122,7 @@ session.setAttribute("url",url);
 </script>
 <!--2020.01.09Overray css추가 -->
 <link rel="stylesheet" href="css/qnaOverray.css">
-<!----------------------------오버레이 화면 띄우는 스크립트------------------------------------>
-<script>						
-	function selectOne(index,yid) {
-		$.ajax({
-		type:"get",
-		
-		url:"./yongSelectOne.jsp",       
-		data:{
-	
-			index:index,
-			yid:yid
-		},	
-		success:whenSuccess2,
-		error:whenError2
-		});
-	}
-		function whenSuccess2(resdata){
-			console.log(resdata);
-			$("#innerpop").html(resdata);
-		}
-		function whenError2(){
-			alert("리스트에러");
-		}
-</script>
+
 <style>
 .league_cont .teams_table {
     position: relative;
@@ -764,6 +741,7 @@ body .league_cont{
 								<input type="text" name="search" value="" placeholder="팀명을 입력 하세요">
 								<button type="button" class="search_button" onclick="this.form.submit();"><span>검색</span></button>
 							</div>
+							<input type="hidden" name="id" id="id" value="<%=uss%>" />
 							</form>
 						</div>
 						<div class="table_wrap">

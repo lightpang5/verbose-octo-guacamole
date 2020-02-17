@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.TeamDto;
 import model.TeamList_Action;
 
-public class TeamInfo_Service implements Cominterface {
-	static TeamInfo_Service impl = new TeamInfo_Service();
-	public static TeamInfo_Service instance() {
+public class TeamInfoService implements Cominterface {
+	static TeamInfoService impl = new TeamInfoService();
+	public static TeamInfoService instance() {
 		return impl;
 
 	}
