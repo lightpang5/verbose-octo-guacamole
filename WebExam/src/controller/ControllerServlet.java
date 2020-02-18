@@ -100,13 +100,19 @@ public class ControllerServlet extends HttpServlet {
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			else if(command.equals("team_regist")){
-				System.out.println("team regist 출력");
+			
 				response.setContentType("text/html;charset=UTF-8");
 				inter = TeamRegistService.instance();
-				System.out.println("team regist 출력2");
+				
 
 				viewName = inter.showData(request, response);
-				System.out.println("team regist 출력3");
+			
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("team_modify")){  //팀리스트  출력
+				System.out.println("team modify 출력");
+				inter = TeamModifyService.instance();
+				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			

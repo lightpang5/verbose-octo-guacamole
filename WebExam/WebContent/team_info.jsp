@@ -295,7 +295,7 @@ td {
 }
 .league_cont .detail_score.team .table_wrap.indi table tbody tr td .pic {
     width: 240px;
-    height: 240px;
+    height: auto;
 }
 .league_cont .detail_score .table_wrap.indi table tbody tr td .pic {
     display: inline-block;

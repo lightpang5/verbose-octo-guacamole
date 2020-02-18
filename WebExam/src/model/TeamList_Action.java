@@ -29,7 +29,16 @@ public class TeamList_Action {
 		sqlSession.close();
 		return TeamList;
 	}
-	public List<TeamDto> selectTeamOne(TeamDto team){ //qna 검색
+	
+	public List<TeamDto> getRegistPlayer(){
+		List<TeamDto> TeamList = null;
+		SqlSession sqlSession = factory.openSession();			
+		TeamList = sqlSession.selectList("registplayer_view");
+		sqlSession.close();
+		return TeamList;
+	}
+	
+	public List<TeamDto> selectTeamOne(TeamDto team){ //team 클릭 시 해당 팀 보기
 		List<TeamDto> list = null;
 		TeamDto obb = team;
 		System.out.println("obb에 teamcode 담기는지 확인"+obb.getT_code());

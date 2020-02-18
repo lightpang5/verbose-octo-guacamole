@@ -21,7 +21,8 @@ session.setAttribute("url",url);
 	
 %>
 
-<%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) request.getAttribute("TeamList");%>
+<%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) request.getAttribute("TeamList");
+ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("RegistPlayer");%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -256,7 +257,7 @@ session.setAttribute("url",url);
     outline: none;
 }
 .teams_table input[type='text'], input[type='password'] {
-    height: 45px;
+    height: 30px;
     margin: 0;
     padding: 3px 9px 3px 9px;
     border: 1px solid #ddd;
@@ -771,8 +772,8 @@ body .league_cont{
 								<%int count = 0;
 									if(TeamList != null){
 										for(int i=TeamList.size(); i>0; i--){
-											for(int j=0;j<TeamList.size();j++){
-												if(TeamList.get(TeamList.size()-i).getT_code()==TeamList.get(j).getT_code()){
+											for(int j=0;j<RegistPlayer.size();j++){
+												if(TeamList.get(i-1).getT_code()==RegistPlayer.get(j).getT_code()){
 													count++;
 												}
 											}
@@ -782,17 +783,17 @@ body .league_cont{
 							
 								<tr>
 									<td class="tb"><%=i%></td>				
-									<td><%=TeamList.get(TeamList.size()-i).getT_class() %></td>
+									<td><%=TeamList.get(i-1).getT_class()%></td>
 									<td>
 										<div class="emb_wrap">
-											<a href="team_info.do?command=teaminfo&teamcode=<%=TeamList.get(TeamList.size()-i).getT_code()%>"><span class="emb">
-											<img src="img/<%=TeamList.get(TeamList.size()-i).getT_logo() %>" alt=""></span> 
-											<span class="team"><%=TeamList.get(TeamList.size()-i).getT_name()%></span></a>
+											<a href="team_info.do?command=teaminfo&teamcode=<%=TeamList.get(i-1).getT_code()%>">
+											<span class="emb"><img src="img/<%=TeamList.get(i-1).getT_logo() %>" alt=""></span> 
+											<span class="team"><%=TeamList.get(i-1).getT_name()%></span></a>
 										</div>
 									</td>
 									<td><%=count %></td>
-									<td class="tb"><%=TeamList.get(TeamList.size()-i).getT_birth()%></td>
-									<td><a href="team_modi_form.jsp" class="btn_view">팀관리</a></td>
+									<td class="tb"><%=TeamList.get(i-1).getT_birth()%></td>
+									<td><a href="team_modi_form.jsp?teamcode=<%=TeamList.get(i-1).getT_code()%>&tid=<%=TeamList.get(i-1).getId() %>" class="btn_view">팀관리</a></td>
 								</tr>
 							<%	count=0;	
 								}

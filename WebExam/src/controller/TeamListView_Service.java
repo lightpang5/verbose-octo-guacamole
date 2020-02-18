@@ -23,8 +23,10 @@ public class TeamListView_Service implements Cominterface {
 		TeamList_Action teamlistmodel = TeamList_Action.instance();
 		
 		ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) teamlistmodel.getTeamList();
+		ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) teamlistmodel.getRegistPlayer();
 		
 		request.setAttribute("TeamList", TeamList);
+		request.setAttribute("RegistPlayer", RegistPlayer);
 		return "team_list.jsp";
 
 	}

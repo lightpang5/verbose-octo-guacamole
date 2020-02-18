@@ -538,10 +538,14 @@ button {
 </style>
 </head>
 <body>
-	<!-- 유즈빈 사용 -->
+<%//2020_01_22 로그인정보에 따라서 
+	if(uss.equals("GUEST")){
+		out.println("<script>alert('로그인 후 이용해주시기 바랍니다.');location.href='teamlist.do?command=teamlist';</script>");
 	
-	
-	
+		
+	}else{
+
+%>	
 	<header>
 		<jsp:include page="<%=includeurl%>" />
 	</header>
@@ -652,5 +656,6 @@ button {
 	<footer id="footer">
 		<jsp:include page="Footer.jsp" />
 	</footer>
+	<%} %>
 </body>
 </html>
