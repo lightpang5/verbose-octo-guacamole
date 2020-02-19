@@ -93,25 +93,28 @@ public class ControllerServlet extends HttpServlet {
 				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
-			else if(command.equals("teaminfo")){  //팀리스트  출력
+			else if(command.equals("teaminfo")){  //팀정보 출력
 				System.out.println("teaminfo 출력");
 				inter = TeamInfoService.instance();
 				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
-			else if(command.equals("team_regist")){
+			else if(command.equals("team_regist")){  //팀등록 
 			
 				response.setContentType("text/html;charset=UTF-8");
 				inter = TeamRegistService.instance();
-				
-
-				viewName = inter.showData(request, response);
-			
+				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
-			else if(command.equals("team_modify")){  //팀리스트  출력
+			else if(command.equals("team_modify")){  //팀관리  출력
 				System.out.println("team modify 출력");
 				inter = TeamModifyService.instance();
+				viewName = inter.showData(request, response);		
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}
+			else if(command.equals("teamsearch")){  //팀리스트 검색  출력
+				System.out.println("team search 출력");
+				inter = TeamSearchService.instance();
 				viewName = inter.showData(request, response);		
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}

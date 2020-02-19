@@ -121,6 +121,22 @@ ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) request.getAttribute("Reg
 		}
 	});
 </script>
+<!-- 팀리스트 검색 script -->
+
+<script>
+function searchselect(){
+	var type = document.getElementById("teamtype");//초등부 성인부
+	var code = document.getElementById("branchcode"); //지점코드
+	
+	var teamtype = search.options[type.selectedIndex].value;  
+	var branchcode = search.options[code.selectedIndex].value; 
+	
+	var word = document.getElementById("search").value; //검색내용
+	alert(teamtype+branchcode+word);
+	document.location.href="teamsearch.do?command=teamsearch&teamtype="+teamtype+"&branchcode="+branchcode+"&word="+word;
+	
+	}
+</script>
 <!--2020.01.09Overray css추가 -->
 <link rel="stylesheet" href="css/qnaOverray.css">
 
@@ -693,17 +709,17 @@ body .league_cont{
 					
 						<div class="search">
 							<form name="frm_search" method="get" action="?">
-							<span class="select">
-								<label for="select01" style="width:100%;">전체</label>
-								<select id="select01" name="grade" class="select_box" style="width:100%;">
+							
+								<label for="select01" style="width:30%;">전체</label>
+								<select id="select01" name="teamtype" class="select_box" style="width:30%;">
 									<option value="">전체</option>
-									<option value="2">성인부</option>
-									<option value="1">초등부</option>
+									<option value="adult">성인부</option>
+									<option value="child">초등부</option>
 								</select>
-							</span>
-							<span class="select">
+							
+							
 								<label for="select02" style="width:100%;">전국현황</label>
-								<select id="select02" name="bcode" class="select_box" style="width:100%;" onchange="fn_SelBranch();">
+								<select id="select02" name="branchcode" class="select_box" style="width:30%; height:30px;">
 									<option value="">전국현황</option>
 									
 											<option value="HM0033">가천대학교 운동장</option>
@@ -737,10 +753,10 @@ body .league_cont{
 											<option value="HM0032">Seogwipo, JEJU</option>
 									
 								</select>
-							</span>
+							
 							<div class="search_wrap">
 								<input type="text" name="search" value="" placeholder="팀명을 입력 하세요">
-								<button type="button" class="search_button" onclick="this.form.submit();"><span>검색</span></button>
+								<button type="button" class="search_button" onclick="searchselect()"><span>검색</span></button>
 							</div>
 							<input type="hidden" name="id" id="id" value="<%=uss%>" />
 							</form>
