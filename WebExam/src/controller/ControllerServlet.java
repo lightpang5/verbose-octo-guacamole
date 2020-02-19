@@ -124,10 +124,15 @@ public class ControllerServlet extends HttpServlet {
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}
 			else if(command.equals("branchlistview")){
-				System.out.println("컨트롤러들어옴");
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out=response.getWriter();
 				inter = BranchList_Service.instance();
+				viewName = inter.showData(request, response);
+				request.getRequestDispatcher(viewName).forward(request, response);
+			}else if(command.equals("branchdetail")){
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out=response.getWriter();
+				inter = BranchDetail_Service.instance();
 				viewName = inter.showData(request, response);
 				request.getRequestDispatcher(viewName).forward(request, response);
 			}

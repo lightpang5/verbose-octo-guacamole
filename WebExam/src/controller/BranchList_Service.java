@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.BranchDto;
-
 import model.BranchList_Action;
+import model.GroundDto;
 
 public class BranchList_Service implements Cominterface {
 	static BranchList_Service impl = new BranchList_Service();
@@ -19,7 +19,6 @@ public class BranchList_Service implements Cominterface {
 
 	@Override
 	public String showData(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("BoardListAction.java");
 		request.setCharacterEncoding("UTF-8");
 
 		BranchList_Action branchmodel = BranchList_Action.instance();

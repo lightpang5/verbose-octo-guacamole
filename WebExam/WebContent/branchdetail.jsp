@@ -1,8 +1,13 @@
+<%@page import="model.BranchDto"%>
+<%@page import="model.GroundDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!--  
+<%
 	ArrayList<BranchDto> BranchList = (ArrayList<BranchDto>) request.getAttribute("BranchList");
 	ArrayList<GroundDto> GroundList = (ArrayList<GroundDto>) request.getAttribute("GroundList");
--->
+	String[] convenarr = BranchList.get(0).getBranch_convenience().split(",");
+	String[] picarr = GroundList.get(0).getGround_pic().split(",");
+%>
 <%
 	//2020_01_02 수정부분
 	String url = request.getServletPath();
@@ -35,6 +40,7 @@
 <script type="text/javascript" src="/js/common/form_check.js"></script>
 <link rel="stylesheet" type="text/css" href="css\find.css" />
 <link rel="stylesheet" href="css/signbutton.css">
+<link rel="stylesheet" href="css/branchdetail.css">
 <link rel="stylesheet" href="css/find.css">
 <link rel="stylesheet" href="css/classic.css">
 <link rel="stylesheet" href="css/classic.date.css">
@@ -111,7 +117,21 @@
 <!-- 한글글씨체적용 /아이디찾기 제목-->
 <link rel="stylesheet" href="css/galboardstyle.css">
 <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
-
+<!-- 닫기가 가능한 커스텀 오버레이 -->
+<style>
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 102px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 14px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 90px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 16px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 20px 0 0 25px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+</style>
 <!-- 이미지 슬라이더 -->
 <style>
 * {
@@ -353,19 +373,19 @@ http://stackoverflow.com/a/34696029/383904
 						<!-- Don't wrap targets in parent -->
 						<s id="s1"></s> <s id="s2"></s> <s id="s3"></s> <s id="s4"></s>
 
+						<!-- 슬라이드 여기에 for문 돌리기 -->
 						<div class="slider">
+							<%
+								if (BranchList != null && GroundList != null) {
+									for (int i = 0; i < picarr.length; i++) {
+							%>
 							<div>
-								<img src="img/ground1.jpg" style="width: 1170px; height: 448px;">
+								<img src="img/<%=picarr[i]%>" style="width: 1170px; height: 448px;" />
 							</div>
-							<div>
-								<img src="img/branch_thumb_1.jpg" style="width: 1170px; height: 448px;">
-							</div>
-							<div>
-								<img src="img/branch_thumb_2.jpg" style="width: 1170px; height: 448px;">
-							</div>
-							<div>
-								<img src="img/branch_thumb_3.jpg" style="width: 1170px; height: 448px;">
-							</div>
+							<%
+								}
+								}
+							%>
 						</div>
 
 						<div class="prevNext">
@@ -384,6 +404,7 @@ http://stackoverflow.com/a/34696029/383904
 						</div>
 
 						<div class="bullets">
+
 							<a href="#s1">1</a> <a href="#s2">2</a> <a href="#s3">3</a> <a href="#s4">4</a>
 						</div>
 
@@ -391,57 +412,63 @@ http://stackoverflow.com/a/34696029/383904
 					<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
 
 					<table>
+						<%
+							if (BranchList != null && GroundList != null) {
+						%>
 						<tbody>
 							<tr>
-								<td colsplan="2" style="height: 100px; font-size: 35px; font-weight: bold; color: navy;">레드폭 크레이지 풋살장</td>
+								<td colsplan="2" class="branchnamebig"><%=BranchList.get(0).getBranch_name()%></td>
 							</tr>
 							<tr>
-								<td colsplan="2" style="font-size: 18px; font-weight: bold;"><img src="img/iconlocation.png" style="width: 24px; height: 24px;margin-right:10px;">지점주소</td>
+								<td colsplan="2" class="branchsubject"><img src="img/iconlocation.png" style="width: 24px; height: 24px; margin-right: 10px;">지점주소</td>
 							</tr>
 							<tr>
-								<td colsplan="2" style="height: 50px; font-size: 18px;">서울특별시 동대구 가나다동 마바사길 154-988</td>
+								<td colsplan="2" class="telfont"><%=BranchList.get(0).getBranch_location()%></td>
 							</tr>
 							<tr>
-								<td colsplan="2" style="font-size: 18px; font-weight: bold;"><img src="img/iconphone.png" style="width: 24px; height: 24px;margin-right:10px;">문의전화</td>
+								<td colsplan="2" class="branchsubject"><img src="img/iconphone.png" style="width: 24px; height: 24px; margin-right: 10px;">문의전화</td>
 							</tr>
 							<tr>
-								<td colsplan="2" style="height: 50px; font-size: 18px;">010-6252-1007 / 010-9505-6646 (10:00 ~ 24:00)</td>
+								<td colsplan="2" class="telfont"><%=BranchList.get(0).getBranch_tel()%></td>
 							</tr>
 
 							<tr>
-								<td style="float: left; margin-right: 18px;"><pre style="font-size: 17px; font-weight: bold; width: 650px; height: 520px; padding: 25px 25px 25px 25px;">
-<label style="font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 구장안내</label>
+								<td class="tdbranch3"><pre class="prebranch4">
+<label style="float: left; font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 구장안내</label>
+<%
+								for (int i = 0; i < GroundList.size(); i++) {
+							%>
 
-A 구장 : (구장크기)(추천인원)
-B 구장 : (17m X 12m)(4 VS 4)
-C 구장 : (40m X 20m)(8 VS 8)
+<%=GroundList.get(i).getGround_name()%>구장 : (<%=GroundList.get(i).getGround_size()%>)
+<%
+	}
+%>
 
-<label style="font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 편의시설</label>
-<!-- 있음아이콘 -->
-<img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/ju.svg" alt="주차장" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/temp.svg" alt="냉난방" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/sh.svg" alt="샤워실" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/ballrent.svg" alt="공대여" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/vestrent.svg" alt="팀조끼대여" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/shoesrent.svg" alt="풋살화대여" style="width: 98px; height: 98px; float: left;">
-<!-- 없음아이콘 -->
-<img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/jux.svg" alt="주차장x" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/tempx.svg" alt="냉난방x" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/shx.svg" alt="샤워실x" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/ballrentx.svg" alt="공대여x" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/vestrentx.svg" alt="팀조끼대여x" style="width: 98px; height: 98px; float: left;"><img src="https://s3.ap-northeast-2.amazonaws.com/filesground/img/icons/new/svg/shoesrentx.svg" alt="풋살화대여x" style="width: 98px; height: 98px; float: left;">
+<label style="float: left; font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 편의시설</label>
+<div style="display: inline-flex;">
+<img src=<%if (convenarr[0].contains("o")) {%> "img/parking_o.png"<%} else if (convenarr[0].contains("x")) {%>"img/parking_x.png"<%}%> alt="주차장" class="branchdetailicon" />
+<img src=<%if (convenarr[1].contains("o")) {%> "img/aircon_o.png"<%} else if (convenarr[1].contains("x")) {%>"img/aircon_x.png"<%}%> alt="냉난방" class="branchdetailicon" />
+<img src=<%if (convenarr[2].contains("o")) {%> "img/shower_o.png"<%} else if (convenarr[2].contains("x")) {%>"img/shower_x.png"<%}%> alt="샤워실" class="branchdetailicon" />
+<img src=<%if (convenarr[3].contains("o")) {%> "img/ball_o.png"<%} else if (convenarr[3].contains("x")) {%>"img/ball_x.png"<%}%> alt="공대여" class="branchdetailicon" />
+<img src=<%if (convenarr[4].contains("o")) {%> "img/vest_o.png"<%} else if (convenarr[4].contains("x")) {%>"img/vest_x.png"<%}%> alt="팀조끼대여" class="branchdetailicon" />
+<img src=<%if (convenarr[5].contains("o")) {%> "img/shoes_o.png"<%} else if (convenarr[5].contains("x")) {%>"img/shoes_x.png"<%}%> alt="풋살화대여" class="branchdetailicon" />
+</div>
 </pre></td>
-								<td style="float: left;"><pre style="font-size: 18px; font-weight: bold; width: 525px; height: 520px; padding: 25px 25px 25px 25px;">
-<label style="font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 예약비용 </label>
 
-▷ A구장 (실외) (40m X 20m)
-<div style="font-size: 15px;">평일주간 (10:00~18:00) : 40,000원 (1시간)
-평일야간 (18:00~24:00) : 45,000원 (1시간)
-주말, 공휴일주간 (10:00~18:00) : 45,000원 (1시간)
-주말, 공휴일 야간(18:00~24:00) : 50,000원 (1시간)
+<td style="float: left;"><pre class="prebranch3">
+<label style="float: left; font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 예약비용 </label>
+<%
+									for (int i = 0; i < GroundList.size(); i++) {
+								%>
+▷<%=GroundList.get(i).getGround_name()%> (<%=GroundList.get(i).getGround_field()%>) (<%=GroundList.get(i).getGround_size()%>)
+<div style="font-size: 15px;">평일주간 (10:00~18:00) : <%=GroundList.get(i).getGround_weekdaydaytime_charge()%>원
+평일야간 (18:00~24:00) : <%=GroundList.get(i).getGround_weekdaynight_charge()%>원
+주말, 공휴일주간 (10:00~18:00) : <%=GroundList.get(i).getGround_weekenddaytime_charge()%>원
+주말, 공휴일야간 (18:00~24:00) : <%=GroundList.get(i).getGround_weekendnight_charge()%>원
+<%
+									}
+								%>
 </div>
-▷ B구장 (실외) (40m X 20m)
-<div style="font-size: 15px;">평일주간 (10:00~18:00) : 40,000원 (1시간)
-평일야간 (18:00~24:00) : 45,000원 (1시간)
-주말, 공휴일주간 (10:00~18:00) : 45,000원 (1시간)
-주말, 공휴일 야간(18:00~24:00) : 50,000원 (1시간)
-</div>
-▷ C구장 (실외) (40m X 20m)
-<div style="font-size: 15px;">평일주간 (10:00~18:00) : 40,000원 (1시간)
-평일야간 (18:00~24:00) : 45,000원 (1시간)
-주말, 공휴일주간 (10:00~18:00) : 45,000원 (1시간)
-주말, 공휴일 야간(18:00~24:00) : 50,000원 (1시간)
 </div>
 </pre></td>
 							</tr>
@@ -449,36 +476,95 @@ C 구장 : (40m X 20m)(8 VS 8)
 								<td></td>
 							</tr>
 							<tr>
-								<td colsplan="2"><label style="font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 위치안내</label> <br> <br> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202400.053578974!2d126.80702748563169!3d37.56682259306878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6ac57e7e24d7bf1d!2z66CI65Oc7Y-t7Iqk7LyA7J207KeA7ZKL7IK0!5e0!3m2!1sko!2skr!4v1581495766937!5m2!1sko!2skr" width="1200" height="550" frameborder="0" style="border: 0;" allowfullscreen=""></iframe></td>
+								<td colsplan="2"><label style="float: left; font-size: 20px; font-weight: bold; color: #a7a7a7d9;">■ 위치안내</label> <br> <br>
+									<div id="map" style="width: 1180px; height: 550px; margin-bottom:40px;"></div> <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2dcf6e7e6b9117069f51425f20cfe014&libraries=services"></script>
+<%
+ for (int i = 0; i < BranchList.size(); i++) {
+ %> <script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(33.450701, 126.570667),
+			level: 3
+		};
+
+		var map = new kakao.maps.Map(container, options);
+		
+		// 지도에 확대 축소 컨트롤을 생성한다
+		var zoomControl = new kakao.maps.ZoomControl();
+
+		// 지도의 우측에 확대 축소 컨트롤을 추가한다
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch('<%=BranchList.get(i).getBranch_location()%>', function(result, status) {
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+		        // 결과값으로 받은 위치를 마커로 표시합니다
+		        var marker = new kakao.maps.Marker({
+		            map: map,
+		            position: coords
+		        });
+
+		     // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
+		     // 별도의 이벤트 메소드를 제공하지 않습니다 
+		     var content = '<div class="wrap">' + 
+		                 '    <div class="info">' + 
+		                 '        <div class="title">' + 
+		                 '            <%=BranchList.get(i).getBranch_name()%>' + 
+		                 '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+		                 '        </div>' + 
+		                 '        <div class="body">' + 
+		                 '            <div class="desc">' + 
+		                 '                <div class="ellipsis"><%=BranchList.get(i).getBranch_location()%></div>' + 
+		                 '                </div>' + 
+		                 '        </div>' + 
+		                 '    </div>' +    
+		                 '</div>';
+
+		     // 마커 위에 커스텀오버레이를 표시합니다
+		     // 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
+		     var overlay = new kakao.maps.CustomOverlay({
+		         content: content,
+		         map: map,
+		         position: marker.getPosition()       
+		     });
+
+		     // 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
+		     kakao.maps.event.addListener(marker, 'click', function() {
+		         overlay.setMap(map);
+		     });
+
+		     // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
+		     function closeOverlay() {
+		         overlay.setMap(null);     
+		     }
+		        
+
+				// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+				map.setCenter(coords);
+				}
+				});
+
+	</script> <%
+ 	}
+ %></td>
 							</tr>
 							<tr>
-								<td style="word-break: break-all; font-size: 20px; float: left; margin-right: 60px;"><pre style="width: 570px; height: 520px; overflow: hidden; padding: 25px 25px 5px 25px;">	
+
+								<td class="tdbranch1"><pre class="prebranch1">	
 <label style="font-size: 20px; font-weight: bold; margin-top: -24px; color: #a7a7a7d9;">■ 안내사항/이용규칙</label>
-< 주차 상세 >
-- 지상/지하주차장 5대 가능 
-- 2시간 1,000원 (1대 당 / 유료)
-- 현금만 가능!!!
-
-< 대여 상세 >
-- 공, 팀 조끼 무상 대여
-
-< 물, 음료 >
-- 정수기 사용 가능
-
-** 풋살장 예약시간 준수
-
-** 풋살장 내 취사, 흡연 및 음주행위,
-지나친 소음행위 금지(적발 시 이용불가)
-
-** 시설 사용 후 정리정돈 ( 쓰레기 반드시 처리 )
-
-** 고의 및 과실로 인한 시설물 훼손 및 파손시
-사용자가 배상하며 경기중 부상은 본인이 책임집니다.
-
-** 잔디보호와 부상방지를 위하여 스터드가 있는 축구화(SG, FG, HG, AG)는
-착용이 금지되며 풋살화(TF)만 착용 가능 합니다.
+<%=GroundList.get(0).getGround_rule()%>
 </pre></td>
-								<td style="word-break: break-all; font-size: 20px; float: left;"><pre style="width: 570px; height: 520px; overflow: hidden; padding: 25px 25px 25px 25px;">
+
+								<%
+									}
+								%>
+								<td class="tdbranch2"><pre class="prebranch2">
 <label style="font-size: 20px; font-weight: bold; margin-top: -10px; color: #a7a7a7d9;">■ 환불규정</label>
 
 - 이용 5일 전까지 : 100% 환불
