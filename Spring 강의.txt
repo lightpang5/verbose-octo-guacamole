@@ -1,0 +1,270 @@
+[https://mvnrepository.com/]
+결국 spring 이라는건 Maven 과 Gradle 에 있는.. 
+즉 Mavne 과 Gradle을 통해 library 쉽게 가져오는것..
+
+File 클릭 후 new > Dynamic web 생성 후 next 누르고 src 폴더 지우고 
+\src\main\java 추가
+Content directory 를 webapp변경 후 Generate web 체크 후 finish 클릭
+
+프로젝트 클릭 후 오른쪽 클릭 후 Configure 클릭 후 convert to Maven 클릭..
+
+Group Id 를 바꾼다.. ex ) com.aa.bb
+com.pro.controller 
+
+
+
+
+의존성주입( 눈에보이는 중간의 연결고리를 다 끊는다.
+
+
+
+interfacs A
+{}
+class C
+{
+A ob = new
+
+
+pom.xml 에 packaging 와 build 사이에 (제일 중요)
+\src\main\java
+webapp 
+com.aa.bb 			 만 추가 !
+
+
+=====================
+
+	<properties>
+		<org.springframework-version> 4.2.1.RELEASE </org.springframework-version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>
+		</dependency>
+
+
+	
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+	</dependencies>
+========================
+web.xml 파일에 welcome-file-list 뒤에 추가..
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+
+
+==========================
+
+webapp/web-inf/spring-servlet.xml 뒤에 spring-servlet.xml 파일 생성
+그 후 파일에 다음 추가 bean 을 객체로 보통 여긴다.
+1.아래쪽에 context.annotation을 허용한다 라는 문장 확인
+2. base-package 
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<beans
+
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+        xmlns:aop="http://www.springframework.org/schema/aop"
+
+        xmlns="http://www.springframework.org/schema/beans"
+
+        xmlns:p="http://www.springframework.org/schema/p"
+
+        xmlns:context="http://www.springframework.org/schema/context"
+
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+        xsi:schemaLocation="http://www.springframework.org/schema/mvc
+
+http://www.springframework.org/schema/mvc/spring-mvc.xsd    http://www.springframework.org/schema/aop
+
+http://www.springframework.org/schema/aop/spring-aop.xsd    http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans.xsd    http://www.springframework.org/schema/context
+
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+        <context:annotation-config />
+
+        <context:component-scan base-package=""/>
+
+</beans>
+
+
+
+
+======================
+src/main/java 로 가서.. 패키지생성
+1com.aa.bb.controller  
+	-> Class 
+2.com.aa.bb.repository
+	-> DAO 만들기
+3.com.aa.bb.vo
+	-> DTO 만들기
+
+webapp/WEB-INF/applicationContext.xml
+ Spring-servlet.xml 파일에서 
+ <context:component-scan base-package=""/> 비어있는 "" 사이에 나의 컨트롤러 패키지 명을 넣는다.
+
+@Controller 를 public class HelloController 위에 넣는다.
+controller.java 파일에  class 안에
+	@RequestMapping("/index")
+	public String index() {
+		return "/WEB-INF/source/index.jsp";
+	}
+	
+
+
+
+==========================
+web-inf 안에 새폴더 하나 만들기
+
+
+자원을 처리하는 applicationContext.xml 생성 후 넣는다. 그 후 비어있는base-package="" 에 
+"com.spring.exam.repository" 를 넣어준다.
+===========================================
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd    http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd    http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd    http://www.springframework.org/schema/jee
+http://www.springframework.org/schema/jee/spring-jee.xsd    http://www.springframework.org/schema/lang
+http://www.springframework.org/schema/lang/spring-lang.xs    http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd    http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd    http://www.springframework.org/schema/task
+http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+	<context:annotation-config />
+	<context:component-scan		base-package="">
+		<context:include-filter type="annotation"	
+		expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation"	
+		expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation"	
+		expression="org.springframework.stereotype.Component" />
+	</context:component-scan>
+
+</beans>
+
+
+
+
+dao 소스( class 위에 @Repository 쓰기)
+======================
+private Connection getConnection() throws SQLException {
+        Connection conn = null;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost/ab";
+            conn = DriverManager.getConnection(url, "root", "11111");
+        }
+        catch (ClassNotFoundException e) {
+            System.out.println(" 드라이버 로딩 실패 ");
+        }
+
+        return conn;
+    }
+
+=================================
+insert.jsp 페이지 추가 후
+1.submit 누르면 method 의 방식(post,get)에 따라서 다른데
+ExamController.java 로 넘어와서 
+@RequestMapping(value="add", method=RequestMethod.POST) 의 경우엔 
+	-> <form action="add" method="post">
+
+webapp/web-inf/source/
+			insert.jsp 내용
+\\\\\\\\\\\\\\\\\\
+   request.setCharacterEncoding("utf-8");
+    
+    String name = request.getParameter("name");
+    String pwd = request.getParameter("pwd");
+    String content = request.getParameter("content");
+    
+    ExamVO vo = new ExamVO();
+    
+    vo.setName(name);
+    vo.setPwd(pwd);
+    vo.setContent(content);
+    
+    ExamDAO dao = new ExamDAO();
+    dao.insert(vo);
+
+==========================================
+dao 에 추가
+
+==============================
+
+    public boolean insert(ExamVO vo ) {
+        boolean result = false;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = getConnection();
+
+            String sql = "INSERT INTO board VALUES (1, ?, ?, ?, (SELECT SYSDATE()) )";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, vo.getName());
+            pstmt.setString(2, vo.getPwd());
+            pstmt.setString(3, vo.getContent());
+            int count = pstmt.executeUpdate();
+
+            result = (count == 1);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
