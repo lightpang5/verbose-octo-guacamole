@@ -11,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import mybatis.SqlMapConfig;
-
 public class BranchList_Action {
 
 	static BranchList_Action model = new BranchList_Action();

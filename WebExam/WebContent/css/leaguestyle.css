@@ -129,7 +129,7 @@ ul{ padding-left: 0px;
 	}
 	.btn_search{
 		
-			font-family: "Nanum Gothic", "맑은 고딕", AppleGothic, 돋움, Dotum, sans-serif;
+			font-family: "Nanum Gothic", "留묒� 怨좊뵓", AppleGothic, �룍��, Dotum, sans-serif;
 			cursor: pointer;
 			white-space: nowrap;
 			padding: 0px;
@@ -158,7 +158,7 @@ ul{ padding-left: 0px;
 	height:68px;
 	}
 
-	/*리그 검색배너 이미지 및 검색 체크박스스타일*/
+	/*由ш렇 寃��깋諛곕꼫 �씠誘몄� 諛� 寃��깋 泥댄겕諛뺤뒪�뒪���씪*/
 	#leaguesearchimg{
 	float:left;height:68px;
 
@@ -178,14 +178,14 @@ ul{ padding-left: 0px;
 	}
 	
 
-	/*Team Rank 제목 바 h4 스타일*/
+	/*Team Rank �젣紐� 諛� h4 �뒪���씪*/
 	
 	.h_bar	{position:relative; padding-left:26px; color:#2c3c57; font-size:30px; line-height:40px; letter-spacing:-2px}
 	.h_bar:before{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:30px; background:#2c3c57}
 	.h_bar:after{content:""; display:block; position:absolute; top:5px; left:0; width:5px; height:6px; background:#aec8f4}
   
 
-  	/*리그 팀 랭킹 테이블 스타일*/
+  	/*由ш렇 �� �옲�궧 �뀒�씠釉� �뒪���씪*/
 	.rank td {
 	font-size: 16px;padding: 10px 0;
     height: 22px;text-align:center;
@@ -213,7 +213,7 @@ ul{ padding-left: 0px;
 	#rankhead td {
 		text-align:center;border-top:2px solid;
 	}
-	/*playerrank 스타일*/
+	/*playerrank �뒪���씪*/
 	.cont{
 	position:relative; margin-top:-1px; padding:4px; border:1px solid #d7d7d7; background:#fff}
 

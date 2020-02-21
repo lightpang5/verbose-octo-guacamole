@@ -149,7 +149,7 @@
 		<section id="mainright">
 			<div id="matList">
 				<div class="sec_ban2">
-					<ul class="nav_ban">
+					<ul class="nav_ban" style="margin-top: 0px;">
 						<li>리그 랭킹</li>
 					</ul>
 					<table class="table table-striped">

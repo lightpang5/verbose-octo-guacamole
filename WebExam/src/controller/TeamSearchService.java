@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import model.SignDto;
-import model.SignModel;
+
 import model.TeamDto;
+import model.TeamSearchAction;
 
 
 public class TeamSearchService implements Cominterface{
@@ -45,19 +45,22 @@ public class TeamSearchService implements Cominterface{
 		//20200219 팀리스트 검색
 		
 		
-		SignModel model = SignModel.instance();
-		ArrayList<QnaSearchDto> list = (ArrayList<QnaSearchDto>)model.selectQnaSearch(board);
+		TeamSearchAction teamlistmodel = TeamSearchAction.instance();
+		ArrayList<TeamDto> list = (ArrayList<TeamDto>)teamlistmodel.searchinform(teamlist);
+		ArrayList<TeamDto> RegistPlayer = (ArrayList<TeamDto>) teamlistmodel.getRegistPlayer();
 		if(list.size()==0) {
 			PrintWriter out=response.getWriter();
 			out.println("<script>alert('해당하는 내용이 없습니다.');</script>");
 			System.out.println("해당하는 내용이 없습니다.");
 		}
 		else {
-		request.setAttribute("qnadata", list);
-		System.out.println(list.get(0).getQ_b_title()+list.get(0).getQ_b_contents()+list.get(0).getQ_b_no());
-		System.out.println("bb"+list.size());
+		
+		request.setAttribute("TeamList", list);
+		request.setAttribute("RegistPlayer", RegistPlayer);
+		System.out.println(list.get(0).getT_name()+list.get(0).getT_logo()+list.get(0).getT_class());
+		System.out.println("last list의 사이즈"+list.size());
 		}
-		return "qna.jsp";
+		return "team_list.jsp";
 	}
 }
 

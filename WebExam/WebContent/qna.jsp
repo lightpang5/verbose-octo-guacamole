@@ -197,31 +197,6 @@ function searchselect(){
 	
 
 
-function searchselect1(){
-	var search = document.getElementById("search");
-	var val = search.options[search.selectedIndex].value;  //0은 제목 1은 내용
-	$.ajax({
-		type:"post",
-	url:"./qna.do?command=qnasearch",       
-	data:{
-	
-		searchword:$('#sel').val(),
-		searchsetting: val
-		
-	},	
-	success:whenSuccess,
-	error:whenError
-	});
-	}
-	var confirmid = "";
-	function whenSuccess(resdata){
-	alert(resdata);
-	//document.location.href="qna.jsp";
-	}
-	function whenError(){
-	alert("Error");
-}
-
 </script>
 <style>
 #qnaTopTable td div {

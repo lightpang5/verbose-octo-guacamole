@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="model.TeamDto"%>
 <%@ page import="java.util.ArrayList"%>
 
 <%@ page import="java.util.Date"%>
+
+
 <%
 String url = request.getServletPath();
 session.setAttribute("url",url);
@@ -19,6 +21,9 @@ session.setAttribute("url",url);
 	//수정부분 끝
 	//2020.01.14 로그인 id 수정
 	String yid = (String) session.getAttribute("id");
+%>
+<!-- 가져온 팀 상세보기 리스트 getAttribute -->
+<%ArrayList<TeamDto> TeamList = (ArrayList<TeamDto>) session.getAttribute("TeamListDetail");
 %>
 <!doctype html>
 <html lang="en">
@@ -293,7 +298,7 @@ td {
 }
 .league_cont .detail_score.team .table_wrap.indi table tbody tr td .pic {
     width: 240px;
-    height: 240px;
+    height: auto;
 }
 .league_cont .detail_score .table_wrap.indi table tbody tr td .pic {
     display: inline-block;
@@ -589,7 +594,7 @@ th {
     text-align: -internal-center;
 }
 .tab_wrap ul.t03 li {
-    width: 33.3%;
+    width: 33.33%;
 }
 .tab_wrap ul li.on {
     z-index: 10;
@@ -708,8 +713,7 @@ th .down,.up {
 </style>
 </head>
 <body>
-	<!-- 유즈빈 사용 -->
-	
+
 	
 	
 	<header>
@@ -734,8 +738,8 @@ th .down,.up {
 			
 				<div class="cbox">
 					<div class="league_cont team">
-					<h3 class="h_tit">불사조</h3>
-					<input class="signbutton signbutton5" type="button" value="가입신청" style="float: right; margin: 10px;" onClick="script:location.href='teamRegister.jsp'">
+					<h3 class="h_tit"><%=TeamList.get(0).getT_name() %></h3>
+					<input class="signbutton signbutton5" type="button" value="가입신청(어떤 방식으로 할지..)" style="float: right; margin: 10px;" onClick="script:location.href='teamRegister.jsp'">
 					<div class="detail_score team">
 						<p class="h_bar">팀 상세 정보</p>
 						<div class="table_wrap indi">
@@ -749,22 +753,22 @@ th .down,.up {
 								<tbody>
 									<tr>
 										<td rowspan="4" class="pic">
-											<span class="pic emblem"><img src="/images/content/default_team.png" alt=""></span>
+											<span class="pic emblem"><img src="img/<%=TeamList.get(0).getT_logo() %>" alt=""></span>
 										</td>
-										<th scope="row">지점</th>
-										<td>부산 북구점</td>
+										<th scope="row">팀 생성일</th>
+										<td><%=TeamList.get(0).getT_birth() %></td>
 									</tr>
 									<tr>
 										<th scope="row">팀분류</th>
-										<td> 성인부</td>
+										<td> <%=TeamList.get(0).getT_class() %></td>
 									</tr>
 									<tr>
 										<th scope="row">팀관리자</th>
-										<td>이종혁</td>
+										<td>이종혁(어떻게 할것인가)</td>
 									</tr>
 									<tr>
 										<th scope="row">팀유니폼</th>
-										<td>홈 : black / red / blue<br>원정 :  blue / black / red</td>
+										<td>Home :<%=TeamList.get(0).getT_uniform_home() %><br>Away : <%=TeamList.get(0).getT_uniform_away() %></td>
 									</tr>
 								</tbody>
 							</table>
@@ -773,13 +777,13 @@ th .down,.up {
 					</div>
 					<div class="tab_wrap">
 						<ul class="t03">
-							<li><a href="team_info.jsp">팀일정</a></li>
+							<li><a href="team_info.do?command=teaminfo&teamcode=<%=TeamList.get(0).getT_code()%>">팀일정</a></li>
 							<li><a href="team_ranking.jsp">팀순위</a></li>
 							<li class="on"><a href="team_players.jsp">선수명단</a></li>
 						</ul>
 					</div>
 
-					<div class="rank_table player">
+					<div class="league_schedule">
 							<form name="form" method="get" action="?">
 							<input type="hidden" name="tcode" value="T1769">
 							<span class="select">
