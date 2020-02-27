@@ -1,0 +1,28 @@
+INSERT INTO player_regist_tb (PLAYER_GAMES, PLAYER_GOALS,PLAYER_YELLOW,PLAYER_RED,ID,LEAGUE_CODE,T_CODE) VALUES (3,6,3,0,'asdfasdf',1,562521);
+
+
+DELETE FROM player_regist_tb WHERE ID = 'aaaaaa';
+
+
+해결해야할 점 
+1. 팀순위(team_ranking.jsp )
+ 순위와 리그를 출력할 때 league 테이블을 다시 불러와야한다.
+팀순위에서 리그 순위는 리그별 전체 승점을 뽑아올 때
+group by 리그코드로 하고 order by desc 순으로 
+승점을 뽑은 뒤 ArrayList 에 담아서 출력할 때 0번째 칸부터 출력하되
+승점이 같으면 for 문 안의 
+변수 rank(한번 돌 때마다 자연스럽게 1이증가, 순위를 나타내는 변수) 를
+1을 더해주어 공동순위를 밀려나게 한다.
+
+2. 팀순위(team_ranking.jsp )
+ 마찬가지로 리그에 대한 정보 출력시 리그테이블에 대한 접근을 동시에 해줘야함
+
+
+3. 선수명단(team_players.jsp)
+ 선수의 번호는 아직 어느 테이블에도 없다 .. 
+
+4.선수 이름
+ 선수의 이름은 PlayerList 의 ID 를 이용해서 다른 테이블을 불러와서 출력가능예상
+
+5. 포지션 
+ ID 를 이용해서 다른테이블을 이용해서 자신의 포지션 출력 가능예상
