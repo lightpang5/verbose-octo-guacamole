@@ -1,0 +1,3 @@
+SELECT * FROM TABLENAME
+
+WHERE COLUMN LIKE concat(¡®%¡¯, #{Keyword}, ¡®%¡¯)

@@ -1,0 +1,8 @@
+CREATE TABLE `springexam` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `pwd` varchar(45) DEFAULT NULL,
+  `content` varchar(45) DEFAULT NULL,
+  `reg_date` date DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8
