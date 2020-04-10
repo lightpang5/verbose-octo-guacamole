@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="guestbook">
+        <select id="getList" resultType="BoardDto">
+                       SELECT no, name, pwd, content, reg_date 
+                       FROM springexam 
+                       ORDER BY no desc
+        </select>
+       	<insert id ="insertlist" parameterType="BoardDto">insert into springexam (name,pwd,content,reg_date) values(#{name},#{pwd}, #{content}, (SELECT SYSDATE()));</insert>
+       	<update id = "edit" parameterType="BoardDto"> update springexam set content = #{content} where no = #{no} ;  </update>
+       	<delete id ="deletelist" parameterType="BoardDto">delete from springexam where no = #{no};</delete>
+       	<select id ="selectdetail" parameterType="BoardDto" resultType="BoardDto">select * from springexam where no = #{no};</select>
+       	<select id ="pwcheck" parameterType="BoardDto" resultType="BoardDto">select * from springexam where no = #{no};</select>
+       	
+</mapper>

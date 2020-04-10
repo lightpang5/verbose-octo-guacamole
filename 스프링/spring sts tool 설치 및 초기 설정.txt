@@ -1,0 +1,4 @@
+help -> eclipse marketplace -> sts(Find에 검색) -> spring tools 3 add-on for spring tools
+
+File - new - other -> spring -> spring legacy project(설치 해야만 뜸) -> next
+				-> spring mvc project

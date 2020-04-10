@@ -1,0 +1,22 @@
+index.jsp
+	-> 이미지삽입 (이미지가 나오지 않는 이유) 
+web.xml 들어오면 DispatcherServlet 으로 바로 보내기 때문에 
+원래는 모든 권한을  tomcat 에서 받았고 플젝 어느 위치의 무엇을 가져간다고 하지만
+현재는 DispatcherServlet가 가져가서 안에 있는 프로젝트 구성을 인식을 못한다.
+권한을 뺏어온다 ..? mvc 통해서?
+
+spring-servlet 가면 
+	<context:annotation-config />
+<context:component-scan base-package="com.spring.exam.controller01" />
+밑에 추가..
+
+<mvc:annotation-driven />
+<mvc:default-servlet-handler />
+webapp -> assets -> images()
+
+
+썼을 때 장점을 부각해서 본다면..
+코드를 쪼개서 분리하다는 느낌 
+
+채팅프로그램에서 점유권을 뺏어온다면..
+싱글톤이 문제가 되니 

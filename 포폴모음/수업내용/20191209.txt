@@ -1,0 +1,46 @@
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+콘솔로 중간중간 캐치하면서 갈 수 있다.
+console.log(sun.opt;ions.length+"jj");
+
+
+[openex.co.kr]  [jqueryui.com]
+
+function 이 생성되어있을 것이다
+아래쪽에서 onload 로 처리(페이지가 열리는 순간.) function 호출
+
+document.getElementById          << 이친구를 Dom 구조이기 때문에 잘 사용해야한다.
+변수는 값때문에 설정햇으나 자바스크립트는 타입을 안가리니까 var 에 그냥 버튼 넣어버리고 
+그걸 가지고 우리가 처리를 한다.
+찾고 찾고 찾아서 그 대상의 해당하는 폰트나 샊깔을 설정할 수 있는게 특징.
+
+노드 즉 엘리멘트를 이용해서 무엇을 할 수 있는지에 대해 
+
+테이블 Dynamic 예제에서는
+즉 포인트는 id 를 가져오고 id 의 속성에 대한 값들을 설정 및 다루고. 
+remove 함수에서 자식들을 지워주고 하는 작업들을 눈여겨봐라. ( parent node 접근해서 작업)
+
+<<<<<<<<<<<<jQuery 수업>>>>>>>>>>>>>
+자바스크립트의 라이브러리이며  특정 부분을 특화시킴.(모양이 중심)
+jquery 는 자바스크립트인데 DB랑 상관이 없이
+현재 여러 프로그램의 동향 >> 스크립트 언어의 종류는 많다. 즉 스크립트에서 일부 빠져나온 
+1 )모든 스크립트 언어의 특징은 굉장히 가볍다.
+2 )css 랑 100% 호환이 가능. css 선택자를 그대로 jquery 에 사용 가능.
+3 )어떤 브라우저를 통해서 보더라도 동일한 결과.
+
+jquery 에서 $ 안에 들어가는 애들은 선택자라고 한다
+java script 에서 사용하는 모든선택자가 지칭 가능 $("여기 !") ex) $("#id.checked")조차도 가능
+최대의 장점 중 하나로 모두 접근 가능 .
+
+
+
+
+
+
+
+
+

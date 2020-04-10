@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  	body {
+		margin:0;
+	}
+	#header {
+		text-align : center;
+		width : 100%; height : 460px;
+		background-color : #EDEDED;
+		position : relative;
+		
+	}
+	#navtop {
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : fixed;
+		left : 0; top : 50px;
+		z-index : 99999;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#navtop.shrink {
+		top:0px;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		
+    
+	}
+	#navtop_logo.shrink {
+		width : 60px; height : 100%;
+	}
+
+	
+	#navtop_logo {
+		float : left;
+		width : 95px; height : 120px;
+		
+		color : #ffffff;
+		position : relative;
+		left : 30px; top : -30px;
+	}
+	#navtop_menu {
+		float : left;
+		width : 960px; height : 99%;
+		color : #ffffff;
+		position:relative;
+		right: -300px;
+		
+		
+		
+	}
+	#navtop_menu li {
+		display : inline;
+		margin-right : 50px;
+		font-size : 22px;
+		height: 60px;
+		font-weight: 700;
+		transition: all 0.3s ease-out;
+		
+	}
+	#navtop_login {
+		float : right;
+		width : 200px; height : 99%;
+		color : #ffffff;
+		font-size : 17px;
+		font-weight: 700;
+		position: relative;
+		
+		
+		
+	}
+	#navmid {
+		clear : both;
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : absolute;
+		bottom : 6px;
+		
+		
+		
+		
+		
+	}
+	#navmid li {
+		display : inline;
+		margin-right : 200px;
+		font-size : 30px;
+
+		
+   
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+   
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+		
+	}
+	#navmid_1 {
+		float : left;
+		width: 31.5%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 32%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 32%; height:100%
+	}
+	
+/*============================================================================*/
+	#main {
+		width : 1270px;
+		
+		
+		margin : 0 400px;
+		
+	}
+	#mainleft {
+		text-align : center;
+		float : left;
+		width : 250px;
+		height : 1500px;
+		margin : 6px 100px;
+		
+		
+	}
+	#leftnav {
+		width : 96%;
+		height : 301px;
+		border-style : solid;
+		margin: 2px;
+		background-color : #960707;
+
+	}
+
+	
+	#leftbanner {
+		width : 96%;
+		height : 100%;
+		
+		margin: 2px;
+	}
+
+	#banner1 {
+		position:sticky;
+		top:100px;
+		width : 98%;
+		height : 100px;
+		border-style: solid;
+		background-color : #EDEDED;
+		margin: 3px;
+		
+	}
+
+	#banner2 {
+		width : 98%;
+		height : 130px;
+		
+		margin: 3px;
+		
+		overflow:hidden;
+	}
+
+	#banner3 {
+		position:sticky;
+		top:200px;
+		width : 98%;
+		height : 190px;
+		border-style: solid;
+		margin: 3px;
+		background-color : #EDEDED;
+		
+		
+	}
+	#mainright {
+		border-style: solid;
+		float : left;
+		width : 79%;
+		height : 100%;
+		margin : 6px;
+		background-color : #EDEDED;
+	}
+	#video01 {
+		position: relative;
+		z-index:-2;
+	}
+	#navtop a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#navmid a {
+		color: #ffffff;
+		font-size:20px;
+		font-weight: 700;
+		text-decoration: none;
+		position: relative;
+		top:10px;
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList {
+		width : 98%;
+		height : 100%;
+		
+		margin : 3px;
+		
+		
+	}
+	#matList a {
+		
+		text-decoration: none;
+	}
+	#matjoin {
+		width : 120px; height : 40px;
+	}
+	#list {
+		clear:both;
+	}
+
+	#footer {
+		border-style: solid;
+		width: 100%; height: 300px;
+		clear:both;
+		background-color : #EDEDED;
+	}
+	/*메인 섹션배너 */
+	.sec_ban2{
+	width:100%; float:left;
+	text-align:center;
+	border-style: solid;
+	height:210px;
+	}
+	/*Q&A 등록테이블 layout*/
+	.qnatb{
+	width:100%;height:460px;border-style: solid;float:left;margin-top:20px;
+	}
+	/*Q&A 버튼 layout */
+	.qnabtn{
+		width:150px;height:40px;border-style: solid;float:right;margin-top:20px;
+	}
+	/*Q&A 게시판 테이블 layout */
+	.qnaregister{
+		width:100%;height:610px;border-style: solid;float: left;margin-top:20px;
+	}
+	/*Q&A 게시판 숫자버튼 layout */
+	.qnanum{
+		width:100%;height:80px;border-style: solid;float: left;margin-top:20px;text-align:center;
+	}
+	/*Q&A 게시판 검색체크박스 및 버튼 layout */
+	.qnasearch{
+		width:100%;height:40px;border-style: solid;float: left;margin:20px 0px;text-align:center;
+	}
+  </style>
+ </head>
+ <body>
+	<header id="header">
+	
+		<div id="navtop">
+			<div id="navtop_logo">
+				 <a href="" ><img src="img/logo2.png" width="95px" height="120px"></a>
+			</div>
+			<div id="navtop_menu">
+				<pre><h1> 대관     매치용병    리그     팀커뮤니티     고객센터</h1></pre>
+			</div>
+			<div id="navtop_login">
+				
+
+				
+				<div id="topnav" class="topnav">
+					<h3>로그인 회원가입</h3>
+		
+  
+				</div>
+				
+				
+				
+			</div>
+		</div>
+		<div id="navmid">
+				<div id="navmid_1" class="slideDown"><a href="">Q & A</a></div>
+				<div id="navmid_2" class="slideDown"><a href="">구장등록</a></div>
+				<div id="navmid_3" class="slideDown"><a href="">공지사항</a></div>
+		</div>
+	</header>
+	<div id="mainleft">
+			
+
+			<div id="leftbanner">
+				<div id="banner1">
+					banner1
+				</div>
+				
+				<div id="banner3">
+					banner2
+				</div>
+			</div>
+
+
+		</div>
+	<section id="main">
+		
+
+		<section id="mainright">
+			<div id="matList">
+				<div class="sec_ban2">
+					메인섹션이미지배너
+
+				</div>
+				
+				<div class="qnatb">
+				
+					<table border="0">
+						<tbody>
+							<tr style="height:66px">
+							<td>제목</td>
+							<td >
+								  <input type="text"  id="qnatitle">
+								
+							</td>
+							</tr>
+							<tr style="height:66px">
+							<td>작성자</td>
+							<td >	
+								
+								  <input type="text" class="form-control" id="qnaid" maxlength="10" style="width:250px">
+								
+							</td>
+							</tr>
+							<tr>
+							<td style="height:77px">비밀번호</td>
+							<td ><div class="form-group has-warning" style="height:45px">
+								 
+								  <input type="text" class="form-control" id="qnapw" maxlength="10" style="width:250px">
+							
+								</div>
+							</td>
+							</tr>
+							<tr>
+							<td style="height:57px">비밀글 설정</td>
+							<td><div class="has-warning">
+								  <div class="checkbox">
+									<label>
+									  <input type="checkbox" id="secret" value="sc">
+									  비밀글 설정시 체크박스에 표시
+									</label>
+								  </div>
+								</div>
+							</td>
+						
+							</tr>
+							<tr style="height:171px">
+							<td>내용</td>
+							<td><textarea class="form-control" rows="7" width="300px"></textarea></td>
+							
+							</tr>
+
+						</tbody>
+						</table>
+				
+				</div>
+				
+				<div class="qnabtn">
+					Q&A 버튼 두개 
+				</div>
+				<div class="qnaregister">
+					Q&A 게시판테이블
+				</div>
+				<div class="qnanum">
+					Q&A 페이지숫자 버튼
+				</div>
+				<div class="qnasearch">
+					Q&A 검색 버튼
+				</div>
+				
+			</div>
+		</section>
+
+	</section>
+	
+	
+
+	<footer id="footer">
+		footer
+	</footer>
+ </body>
+</html>

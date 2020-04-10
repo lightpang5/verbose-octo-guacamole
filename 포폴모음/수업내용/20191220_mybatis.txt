@@ -1,0 +1,53 @@
+mybatis (jsp db) 마크업 (태그화 되어있다.) 으로 db 처리
+
+DB -> xml 
+
+모든 문장들을 xml 파일로 빼버린다.\\
+(기존의 db를 xml 로) 여러개의 xml 파일이 필요
+
+
+
+
+
+장점은 많다
+내용이 많지 않은데 굳이 뜯을 필요는 없지만
+앞으로는 덩어리가 큰 작업이다. 필수 
+
+  jps  >   php
+대규모 > 소규모
+
+필드 3개짜리 테이블 생성 , 입력 수정 삭제 검색
+
+
+
+---user.main(사람관리하는... 앞은 패키지명 의미를 둔다) : class(1)
+|
+|
+|
+|--user.dao : [mapper.xml](getter setter >> data access object   [class(dbclose)], [class(dao)]											public class User_dao {
+|									public static User_dao ob;	|								//싱글톤 객체 (안궁금하지만 꼭 알아야	|							한다.) >> 100만명이면 객체 100만개를 		|					써야하니 공간 할당 100만개가 필요함.. 그러니 			|				하나만 만들어 하나에 필요한걸 바꿔서만 쓰자}
+
+|		mapper xml 파일에서 
+|		  <insert id="" parameterType="">
+|			insert into table명(name,id,pwd) values(값1,값2,값3);
+|		  </insert>
+|
+|
+|
+|--usser.bean : class: dto (data transform object) > getter 와 setter 있음
+|
+|
+|
+|--user.action :	interface, class(insert) , class(delete) , class(update), class(select)
+|			(작업을 햇을때 결과적으로 db의 집어넣을때 insert 나 delete 할때 의 작업들이 여기로 들어간다.)
+|
+|
+|
+|
+---*.xml : DB 환경설정
+
+
+	<property name="url" value="jdbc:mysql://localhost/jsp"/> 맨 뒤에 jsp 를 자신의 사용 데이터베이스명 넣기
+( <typeAlias type="dto의 경로 !" alias="별명"/> type 과 alias 지운다. <mapper resource="" /> resource 도 지운다.
+프로젝트 누르고 패키지를 New
+

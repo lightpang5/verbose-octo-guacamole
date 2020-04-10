@@ -1,0 +1,487 @@
+[https://mvnrepository.com/]
+결국 spring 이라는건 Maven 과 Gradle 에 있는.. 
+즉 Mavne 과 Gradle을 통해 library 쉽게 가져오는것..
+
+
+
+Dynamic web 생성 (src delete하고 \src\main\java 추가)+(Content directory 를 webapp변경 후 Generate web 체크)
+프로젝트 우클릭 - convert to Maven
+Group Id 를 변경 ex) com.중분류.소분류
+
+=====================pom.xml의 </packaging>과 <build>사이에 복붙===================================
+
+	<properties>
+		<org.springframework-version> 4.2.1.RELEASE </org.springframework-version>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>
+		</dependency>
+
+
+	
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+	</dependencies>
+==================================================================================================
+
+========================web.xml 파일에 </welcome-file-list> 뒤에 복붙=============================
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+==================================================================================================
+
+==============webapp/web-inf에 spring-servlet(servlet이름<-web.xml에서 설정한..).xml 파일 생성====
+==============webapp/web-그 안에 복붙=============================================================
+==============webapp/web-base-package에는 컨트롤러클래스가 들어있는 패키지명을 쓴다.==============
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<beans
+
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+        xmlns:aop="http://www.springframework.org/schema/aop"
+
+        xmlns="http://www.springframework.org/schema/beans"
+
+        xmlns:p="http://www.springframework.org/schema/p"
+
+        xmlns:context="http://www.springframework.org/schema/context"
+
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+        xsi:schemaLocation="http://www.springframework.org/schema/mvc
+
+http://www.springframework.org/schema/mvc/spring-mvc.xsd    http://www.springframework.org/schema/aop
+
+http://www.springframework.org/schema/aop/spring-aop.xsd    http://www.springframework.org/schema/beans
+
+http://www.springframework.org/schema/beans/spring-beans.xsd    http://www.springframework.org/schema/context
+
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+        <context:annotation-config />
+
+        <context:component-scan base-package=""/>
+
+</beans>
+
+
+==================================================================================================
+
+
+======================src/main/java 에 패키지생성=================================================
+1com.중분류.소분류.controller  
+	-> controller 큰래스 만들고 @controller 추가
+2.com.aa.bb.repository
+	-> DAO 클래스만들고 @repository추가
+3.com.aa.bb.vo
+	-> DTO 만들기
+4.com.중분류.소분류.service
+	-> service 클래스 만들기
+
+controller.java 파일에  class 안에
+	@RequestMapping("/index")
+	public String index() {
+		return "/WEB-INF/폴더명/index.jsp";
+	}
+	
+
+
+web-inf 안에 새폴더 views(폴더명)만들고 index.jsp 추가
+==================================================================================================
+
+=================자원을 처리하는 applicationContext.xml 생성 후 복붙 =============================
+base-package에는 DAO들어있는 패키지명을 쓴다.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd    http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop.xsd    http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd    http://www.springframework.org/schema/jee
+http://www.springframework.org/schema/jee/spring-jee.xsd    http://www.springframework.org/schema/lang
+http://www.springframework.org/schema/lang/spring-lang.xs    http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd    http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd    http://www.springframework.org/schema/task
+http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+	<context:annotation-config />
+	<context:component-scan		base-package="">
+		<context:include-filter type="annotation"	
+		expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation"	
+		expression="org.springframework.stereotype.Service" />
+		<context:include-filter type="annotation"	
+		expression="org.springframework.stereotype.Component" />
+	</context:component-scan>
+
+</beans>
+
+==================================================================================================
+
+****여기까지 하면 index.jsp 켜짐***
+
+
+==============index.jsp에 복붙====================================================================
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
+  
+
+
+<c:set var="count" value="${fn:length(list)}" />
+
+        <c:forEach items="${list}" var="vo" varStatus="status" >
+
+               <table width="510" border="1">
+
+                       <tr>
+
+                              <td>${vo.name }</td>
+
+                              <td>${vo.regDate }</td>
+
+                       </tr>
+
+               </table>
+
+               <br>
+
+        </c:forEach>
+
+==================================================================================================
+
+============DAO클래스에 메소드 복붙===============================================================
+    private Connection getConnection() throws SQLException {
+        Connection conn = null;
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+
+            String url = "jdbc:mysql://localhost/ab";
+            conn = DriverManager.getConnection(url, "root", "11111");
+        }
+        catch (ClassNotFoundException e) {
+            System.out.println(" 드라이버 로딩 실패 ");
+        }
+
+        return conn;
+    }
+
+	public List<BoDto> getList(){
+        List<BoDto> list = new ArrayList<BoDto>();
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = getConnection();
+
+            String sql = "SELECT id, pw, name" +
+                    " FROM teamp1220"; 
+
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+            	BoDto vo = new BoDto();
+                vo.setId(rs.getString(1));
+                vo.setPw(rs.getString(2));
+                vo.setName(rs.getString(3));
+                
+
+                list.add(vo);
+            }
+        }
+        catch (SQLException e) {
+        }
+
+        return list;
+    }
+
+
+
+=================================================================================================
+
+****여기까지 하면 index.jsp 에서 list 출력가능***
+
+=============컨트롤러 클래스에 Autowired 객체 만들기=============================================
+	@Autowired
+	private BoDao boDao;
+=================================================================================================
+
+=============select를 컨트롤러클래스의 index메소드에서 호출======================================
+	@RequestMapping("/index")
+	public String index(Model model) {
+		List<BoDto> list = boDao.getList();
+		model.addAttribute("list",list);
+		return "/WEB-INF/views/index.jsp";
+	}
+
+=================================================================================================
+
+==================web.xml의 </welcome-file-list>아래에 복붙======================================
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+=================================================================================================
+
+============DAO에 insert 메소드 복붙=============================================================
+
+
+    public boolean insert(ExamVO vo ) {
+        boolean result = false;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+            conn = getConnection();
+
+            String sql = "INSERT INTO board VALUES (1, ?, ?, ?, (SELECT SYSDATE()) )";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, vo.getName());
+            pstmt.setString(2, vo.getPwd());
+            pstmt.setString(3, vo.getContent());
+            int count = pstmt.executeUpdate();
+
+            result = (count == 1);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+=================================================================================================
+
+===========컨트롤러에 DAO의 insert메소드 호출하는 메소드 복붙====================================
+
+	@RequestMapping(value="/add", method=RequestMethod.POST)
+	public String  add(@ModelAttribute BoDto vo)
+	{
+			boDao.insert(vo); 
+		return "redirect:/index";
+	}
+
+=================================================================================================
+
+===========index.jsp에 form 복붙=================================================================
+
+	<form action="add" method="post">
+		<table border="1" width="500">
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="id"></td>
+				<td>비밀번호</td>
+				<td><input type="password" name="pw"></td>
+				<td>이름</td>
+				<td><input type="text" name="name"></td>
+			</tr>
+			<tr>
+				<td colspan=4><textarea name="content" cols=60 rows=5></textarea></td>
+			</tr>
+			<tr>
+				<td colspan=4 align=right><input type="submit" VALUE=" 확인 "></td>
+			</tr>
+		</table>
+	</form>
+
+=================================================================================================
+****여기까지 하면 index.jsp 에서 insert가능***
+
+=================================================================================================
+
+*index에 삭제버튼 추가
+<td><a href="deleteform?id=${vo.id }">삭제</a></td>
+
+*views폴더에 deleteform.jsp 추가하고 form복붙
+	<form action="delete?id=${ param.id }" method="post">
+		<table>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="text" value="${ param.id }"></td>
+				<td><input type="password" name="pw"></td>
+				<td><input type="submit" value="확인"></td>
+			</tr>
+		</table>
+	</form>
+
+************** ${param.id} 로 전 페이지에서 보내준 parameter값 받아서 사용***********************
+
+
+=================================================================================================
+
+=============DAO에 delete메소드 복붙=============================================================
+
+    public boolean delete(String pw) {
+        boolean result = false;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        try {
+           conn = getConnection();
+        	
+            String sql = "DELETE FROM temp1220 WHERE pw=?";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, pw);
+            int count = pstmt.executeUpdate();
+
+            result = (count == 1);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+=================================================================================================
+
+============컨트롤러에 deleteform로 이동, delete기능 메소드 복붙=================================
+
+	@RequestMapping(value="/deleteform")
+	public String  deleteform() {
+		System.out.println("딜리트폼");
+		return "/WEB-INF/views/deleteform.jsp";
+	}
+	
+	@RequestMapping(value="/delete", method=RequestMethod.POST)
+	public String delete(@RequestParam String id , @RequestParam String pw) {
+		
+		boDao.delete(pw);
+		return "redirect:/index";
+	}
+
+
+************** @RequestParam String pw 처럼 전 페이지에서 보내준 값 매게변수로 바로 받기 가능****
+
+=================================================================================================
+
+DB를 사용할 때 문제가 될수있는 상황은 다 제거해야한다.
+그래서 컨트롤러에서 confirm메세지로 확인하고 결과에따라 DAO호출해야한다.
+but 이렇게하면 너무 길어진다!
+해결법은! service 패키지를 만들어서 컨트롤러의 기능을 나눠준다!
+
+컨트롤러에 서비스클래스객체 만든다.
+	@Autowired
+	private BoService boService;
+
+서비스클래스에 @Service붙여준다.
+
+서비스클래스에 DAO객체 만들어준다.
+	@Autowired
+	private BoDao boDao;
+
+서비스클래스에 DAO클래스의 getList()와 같은 메소드를 만들고 return에 DAO.getList()의 리턴값을 적어준다.
+	public List<BoDto> getList(){
+		return boDao.getList();
+	}
+
+
+컨트롤러에서 index메소드에 DAO.getList()를 서비스.getList()로 바꾼다.
+	//List<BoDto> list = boDao.getList();
+	List<BoDto> list = boService.getList();
+
+******이제 확인하는 기능들을 DAO가 아닌 service에 추가할 수 있다!********************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=================================================================================================
+
+
+

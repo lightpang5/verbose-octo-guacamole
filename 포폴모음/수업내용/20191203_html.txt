@@ -1,0 +1,25 @@
+ footer --- 사업자번호 등등...
+
+		Header    >>> 960 px 혹은 1020px 여기선 960
+		Navigation
+
+Aside		Section
+		Footer
+
+
+
+
+
+
+
+
+
+마진에 대한부분을 조절해서 레이아웃을 설정.
+margin: (위아래)0 (좌우)auto
+
+
+
+
+<header id=h>header</header>
+		<article id=at>Article</article>
+		<footer id=f>footer</footer>
