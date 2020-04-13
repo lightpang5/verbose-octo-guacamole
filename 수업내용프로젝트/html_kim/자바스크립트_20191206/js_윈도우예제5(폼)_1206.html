@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  
+  <title>Document</title>
+	<SCRIPT>
+		function password()
+		{
+			var pass_len = my_form.bimil.value.length
+
+			if((pass_len >= 4) && (pass_len <= 8))
+			{
+				alert("입력해주셔서 감사합니다")
+			}
+			else
+			{
+				alert("4~8자 사이의 암호만 유효합니다.")
+				my_form.bimil.value=""
+				my_form.bimil.focus()
+
+			}
+		}
+	</SCRIPT>
+
+ </head>
+ <body>
+  <FORM NAME="my_form">
+  	이름 : <INPUT TYPE = "text" NAME = "irum" SIZE=10> <BR>
+	암호 : <INPUT TYPE = "password" NAME ="bimil" SIZE=10 MAXLENGTH=8> <P>
+
+	<INPUT TYPE="button" VALUE="비밀번호 입력 글자 수 체크" onClick="password()">
+
+  </FORM>
+ </body>
+</html>

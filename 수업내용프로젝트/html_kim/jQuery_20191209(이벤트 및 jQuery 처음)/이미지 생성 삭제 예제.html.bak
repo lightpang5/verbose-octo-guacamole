@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ 
+  <title>Document</title>
+  <style></style>
+  <script>
+  	function imgCreate(){
+		var div = document.getElementById("div");
+		div.innerHTML = "<img src='img/son.gif' id='dog' title='손흥민'/>"
+						+"<img src = 'img/son.jpg' id='cat' width='300' height='300'/>";
+	}
+	function imgDel(){
+		var div = document.getElementById("div");
+		var dog = document.getElementById("dog");
+		div.removeChild(dog);
+	}
+  </script>
+ </head>
+ <body>
+	<h1>Dom 생성 및 삭제</h1>
+	<form>
+		<input type="button" value = "img생성" onclick ="imgCreate()"/>
+		<input type="button" value = "img삭제" onclick ="imgDel()"/>
+	</form>
+	<div id="div"></div>
+ </body>
+</html>

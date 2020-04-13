@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <title>Document</title>
+   <script>
+  	$(function(){
+		$("button").on("click", function(){
+			$("img[alt='flower']").attr("src","img/legend_son.gif");
+			});
+		});
+  </script>
+ </head>
+ <body>
+  <h1>속성 선택자</h1>
+  <img src = "img/son.jpg" alt="flower"><br/>
+	<button>속성을 바꾸죠!!</button>
+  
+ </body>
+</html>

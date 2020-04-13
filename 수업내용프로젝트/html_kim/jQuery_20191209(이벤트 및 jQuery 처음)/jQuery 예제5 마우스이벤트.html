@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <title>Document</title>
+  <script>
+	$(function(){
+		$("#btb").on({// on 자체가 이벤트를 등록하겠습니다 ~.
+			mouseenter: function(){
+				$("#text").append("마우스가 버튼 위로 진입했어요!<br>");
+			},
+			click: function() {
+				$("#text").append("마우스가 버튼을 클릭했어요!<br>");
+
+			},
+			mouseleave: function(){
+				$("#text").append("마우스가 버튼 위에서 빠져나갔어요!<br>");
+			//	$("#text").remove();
+			}
+
+		});
+	});
+
+  </script>
+ </head>
+ <body>
+  <button id="btb">마우스를 버튼 위로 가져가거나 클릭해 보세요!</button>
+  
+  <h3 id="text"></h3>
+  
+ </body>
+</html>

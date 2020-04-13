@@ -1,0 +1,53 @@
+@charset "EUC-KR";
+/* button */
+button	{display:inline-block; padding:0; border:0; background:transparent; text-align:center; vertical-align:middle; cursor:pointer; white-space:nowrap; -webkit-transition:all 0.25s ease-out; -moz-transition:all 0.25s ease-out; -ms-transition:all 0.25s ease-out; -o-transition:all 0.25s ease-out; transition:all 0.25s ease-out;}
+button.dis,
+button.dis	span	{cursor:default}
+button.dis:hover	span	{background-position:0 0}
+button.dis:hover	span	span	{background-position:right 0}
+
+.gray	{background:#868686 !important}
+.cancel	{background:#868686 !important}
+.red	{background:#e3212b !important}
+
+.btn_base	{position:relative; display:inline-block; padding:0 15px; min-width:180px; background:#2c3c57; color:#fff; font-size:18px; line-height:47px; text-align:center; vertical-align:middle; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-transition:all 0.25s ease-out; -moz-transition:all 0.25s ease-out; -ms-transition:all 0.25s ease-out; -o-transition:all 0.25s ease-out; transition:all 0.25s ease-out;}
+.btn_base:hover	{background:#003f96 !important}
+
+.btn_middle	{position:relative; display:inline-block; padding:0 15px; min-width:180px; background:#2c3c57; color:#fff; font-size:20px; line-height:60px; text-align:center; vertical-align:middle; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-transition:all 0.25s ease-out; -moz-transition:all 0.25s ease-out; -ms-transition:all 0.25s ease-out; -o-transition:all 0.25s ease-out; transition:all 0.25s ease-out;}
+.btn_middle:hover	{background:#003f96 !important}
+
+.btn_big	{position:relative; display:inline-block; padding:0 15px; width:195px; background:#2c3c57; color:#fff; font-size:23px; line-height:65px; text-align:center; vertical-align:middle; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-transition:all 0.25s ease-out; -moz-transition:all 0.25s ease-out; -ms-transition:all 0.25s ease-out; -o-transition:all 0.25s ease-out; transition:all 0.25s ease-out;}
+.btn_big:hover	{background:#003f96 !important}
+
+.btn_red	{display:inline-block; position:relative; margin-top:38px; padding:0 32px; height:60px; background:#d20c26; color:#fff; font-size:18px; line-height:60px; text-align:center}
+.btn_red.go span	{display:inline-block; padding-right:20px; background:url('/images/common/btn_find_arr.png') no-repeat right center; line-height:60px}
+
+
+/* Button Align */
+.btn_wrap	{margin-top:20px; text-align:center; font-size:0; line-height:0;}
+.btn_wrap .btn_base, .btn_wrap .btn_big	{margin-left:10px}
+.btn_wrap .btn_base:first-child, .btn_wrap .btn_big:first-child	{margin-left:0 !important}
+
+.btn_wrap .btn_base, .btn_wrap .btn_middle	{margin-left:10px}
+.join_wrap .btn_wrap .btn_middle	{margin-left:0}
+.btn_wrap .btn_base:first-child, .btn_wrap .btn_middle:first-child	{margin-left:0 !important}
+
+.btn_wrap:after	{content:""; display:block; clear:both}
+.btn_wrap.side	{text-align:right}
+.btn_wrap.side button	{display:inline-block;}
+.btn_wrap.side button:first-child	{float:left}
+
+.btn_wrap.right	{font-size:0; line-height:0; text-align:right}
+.btn_wrap.right a	{float:none; margin:0 0 0 5px;}
+.btn_wrap.right a:first-child	{margin:0}
+.btn_wrap.right button	{float:none; margin:0 0 0 5px;}
+.btn_wrap.right button:first-child	{margin:0}
+
+.btn_wrap.left	{text-align:left}
+
+.btn_wrap .fl_left	{}
+.btn_wrap .fl_left .btn_base	{margin-left:5px}
+.btn_wrap .fl_right	{}
+.btn_wrap .fl_right .btn_base	{margin-left:5px}
+
+.abs_rt {position: absolute;right: 0;top:0;margin:0}

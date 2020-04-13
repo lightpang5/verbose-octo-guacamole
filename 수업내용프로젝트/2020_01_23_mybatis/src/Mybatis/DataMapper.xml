@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="abc">
+
+<select id="selectSangpum" parameterType="ArrayList" resultType="SangpumDto"><!--  기존의 ResultSet 에 저장해주던 것을 형태 Dto 타입 return 으로 저장해준다. -->
+	select * from galboard;             
+</select>
+
+</mapper>

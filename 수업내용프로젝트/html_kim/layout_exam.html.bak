@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  body{
+	width: 1020px;
+	margin: 0 auto ;
+  }
+  #header{
+
+	width: 1020px;
+	height: 100px;
+	background: #D6F0FF;
+
+	margin :  0 ;
+	}
+
+	ul{
+	list-style-type:none;
+	margin : 0 ;
+	
+	}
+	li{
+	display:inline;
+	background: #CFFF24;
+	}
+  #navi{
+	margin : 0 ;
+	padding : 0px;
+	text-align:center;
+	width: 1020px;
+	height: 150px;
+	background: #2FED28;
+
+	}
+	#aside{
+		float: left;
+		top: 30px;
+		left: 30px;
+		width: 260px;
+		height: 600px;
+		background: yellow;
+		z-index: 3;
+		}
+	#sect{
+		
+		float:left;
+		top: 60px;
+		left: 60px;
+		width: 760px;
+		height: 600px;
+		background: #ED0000;
+		z-index: 2;
+		}
+	#foot{
+		clear:left;
+		top: 60px;
+		left: 60px;
+		width: 1020px;
+		height: 150px;
+		background: #3D3D3D;
+		z-index: 1;
+		}
+		</style>
+ </head>
+ <body >
+
+ <div id="header" align="center" >Header</div>
+ <div id="navi" > <ul><li><a href="http://naver.com">
+		회사소개</a> | </li>
+		<li>제품소개 | </li>
+		<li>공지사항 | </li>
+		<li>업무제휴 | </li>
+		<li>고객센터 | </li>
+		</ul>
+	</div>
+	 <div id="aside" align ="center">Aside</div>
+	<div id="sect" align ="center">Section</div>
+	<div id="foot" align ="center">Footer</div>
+ </body>
+</html>

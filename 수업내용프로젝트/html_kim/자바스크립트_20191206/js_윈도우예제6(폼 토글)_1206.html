@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+ </head>
+ <body>
+	버튼을 클릭하면 ON은 OFF로 OFF는 ON으로<br>
+	TRUE 는 FALSE로 FALSE는 TRUE로<br>
+	MAN 은 WOMAN으로 WOMAN은 MAN으로 토글됨
+	<form onSubmit="return false">
+
+		<input type="button" value="ON" onClick="this.value=(this.value=='ON')? 'OFF' : 'ON'">
+		<input type="reset" value="TRUE" onClick="this.value=(this.value=='TRUE')? 'FALSE' : 'TRUE'">
+		<input type="submit" value="MAN" onClick="this.value=(this.value=='MAN')? 'WOMAN' : 'MAN'">
+	</form>
+ </body>
+</html>

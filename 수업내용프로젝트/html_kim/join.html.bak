@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>회원가입</title>
+  <link rel="stylesheet" type="text/css" href="css\join.css"/>
+  <style>
+	 body{
+  	background-image:url("img/bgkorea_copy.jpg");
+	
+	background-position: center top;
+	background-attachment:scroll;
+	background-repeat: repeat;
+	
+	}
+	</style>
+ </head>
+ 
+ <body>
+ <iframe src="img/bgson1.jpg" scrolling="yes"
+	width="700" height="700" frameborder="yes"
+	align="center">
+	<center> 
+
+	<img src="img/koreatiger.jpg" title="한국로고" align = left>
+		<form>
+		<br><br><br><br><br><br>
+		<table border=1 cellpadding=5 align ="center" class=abc>
+	
+ 
+ 
+ <thead>
+ <tr bgcolor=black align = "center">
+ <td colspan = 2><font color="white">
+ 
+ <IMG src="img/ass2.png" width="25px" height="25px"> 풋살 회원가입 <IMG src="img/ass2.png" width="25px" height="25px"> 
+ 
+ </td>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+	 <td class = ff><font color="#FFCC33">
+	 * </font>아이디
+	 </td>
+	 <td class=ab>
+	 <input type ="text" name ="id"  maxlength="10" value="I D" class = box> 
+	 <input type="button" value="중복확인" class=btn>
+	  </td>
+  </tr>
+  
+  <tr>
+	  <td class=ff><font color="#FFCC33">
+		* </font>비밀번호</td>
+		<td class=ab>
+		<input type ="password" name ="pw"  maxlength="10" value="" class=box> <font color="#FFCC33">
+	* </font><font size=3pt>비밀번호확인</font><input type ="password" name ="pwch"  maxlength="10" value="" class=box>
+		</td>
+	
+	</tr>
+	<tr>
+		<td class=ff><font color="#FFCC33">
+			* </font>이름</td>
+		<td class=ab>
+		<input type ="text" name ="name"  maxlength="10" value="김풋살" class=box>
+		</td>
+	</tr>
+
+	<tr bgcolor=black align = "center">
+	<td colspan=2><font color="white"><IMG src="img/ass2.png" width="25px" height="25px"> 개 인 정 보 <IMG src="img/ass2.png" width="25px" height="25px">	</font></td>
+	</tr>
+	<tr>
+		<td class=ff>
+		성별</td>
+		<td class=ab>
+		
+		<input type ="radio" name="gender" value="1" checked >여성<br>
+		<input type ="radio" name="gender" value="2"  >남성
+		 
+		</td>
+	</tr>
+	<tr>
+		<td class =ff><font color="#FFCC33">
+			* </font>
+		휴대폰번호</td>
+		<td class=ab>
+		<input type ="text" name ="hp1" " maxlength="3" value="010" class=box> - 
+		<input type ="text" name ="hp2"  maxlength="4" value="" class=box> -
+		<input type ="text" name ="hp3"  maxlength="3" value="" class=box>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff><font color="#FFCC33">
+			* </font>
+		이메일주소</td>
+		<td class=ab>
+		<input type ="text" name ="em1"  maxlength="15" value="" class=box> @ 
+	<font size=3pt></font><input type ="text" name ="em2"  maxlength="10" value="" class=box>
+		<select name="mail" class=box>
+		<option value="sss">직접입력
+		<option value="n">naver.com
+		<option value="d">hanmail.net
+		<option value="g">gmail.com
+		</select><br>
+	
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		주소</td>
+		<td class=ab>
+
+
+		<input type ="text" name ="hp" size ="50" maxlength="50" value="우편번호" class=box> <input type="button" value="주소검색" class=btn><p>
+
+        <input type ="text" name ="adr"  maxlength="50" value="기본주소" class=adrbox><p>
+		<input type ="text" name ="adr"  maxlength="50" value="상세주소" class=adrbox><br>
+		</p>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		생년월일</td>
+		<td class=ab>
+	  <select name = "yy" class=btn>
+	  <option value="1">1984
+	  <option value="2">1985
+	  <option value="3">1986
+	  <option value="4">1987
+	  <option value="5">1988
+	  <option value="6">1989
+	  <option value="7">1990
+	  <option value="8">1991
+	  <option value="9">1992
+	  <option value="10">1993
+	  <option value="11">1994
+	  <option value="12">1995
+	  <option value="13">1996
+	  <option value="14">1997
+	  <option value="15">1998
+	  <option value="16">1999
+	  <option value="17">2000
+	  <option value="18">2001
+	  <option value="19">2002
+	  <option value="20">2003
+	  <option value="21">2004
+	  <option value="22">2005
+	  </select>
+	   <select name = "mm" class=btn>
+	  <option value="1">01
+	  <option value="2">02
+	  <option value="3">03
+	  <option value="4">04
+	  <option value="5">05
+	  <option value="6">06
+	  <option value="7">07
+	  <option value="8">08
+	  <option value="9">09
+	  <option value="10">10
+	  <option value="11">11
+	  <option value="12">12
+	  </select>
+	  <select name = "dd" class=btn>
+	  <option value="1">01
+	  <option value="2">02
+	  <option value="3">03
+	  <option value="4">04
+	  <option value="5">05
+	  <option value="6">06
+	  <option value="7">07
+	  <option value="8">08
+	  <option value="9">09
+	  <option value="10">10
+	  <option value="11">11
+	  <option value="12">12
+	  <option value="13">13
+	  <option value="14">14
+	  <option value="15">15
+	  <option value="16">16
+	  <option value="17">17
+	  <option value="18">18
+	  <option value="19">19
+	  <option value="20">20
+	  <option value="21">21
+	  <option value="22">22
+	  <option value="23">23
+	  <option value="24">24
+	  <option value="25">25
+	  <option value="26">26
+	  <option value="27">27
+	  <option value="28">28
+	  <option value="29">29
+	  <option value="30">30
+	  <option value="31">31
+
+	  </select>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff >사진</td>
+		<td class=ab><input type ="file" name="pic"></td>
+	</tr>
+	<tr>
+		<td class=ff>
+		실력</td>
+		<td class=ab>
+		<select name="lv" size="1" class = box><option value="">상<option value="">중상<option value="">중<option value="">중하<option value="">하
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td class=ff>
+		소속팀존재유무</td>
+		<td class=ab>
+		<input type="radio" name="team" value"">있음 <input type="radio" name="team" value"">없음
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td class=ff>
+		선호포지션</td>
+		<td class=ab>
+		<input type="checkbox" name=hobby value="">FW <input type="checkbox" name=hobby value="">MF <input type="checkbox" name=hobby value="">DF <input type="checkbox" name=hobby value="">GK 
+		</td>
+	</tr>
+
+	<tr>
+		<td class=ff>
+		추천인ID</td>
+		<td class=ab>
+		<input type="text" name="chuchun" size="20" maxlength="7" class = box> 
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		비밀번호확인질문</td>
+		<td class=ab>
+		<select name="passwd2" size="1" class = box><option value="">기억에 남는 추억의 장소는?<option value="">자신의 인생 좌우명은?<option value="">자신의 보물 제1호는?<option value="">가장 기억에 남는 선생님 성함은?<option value="">타인이 모르는 자신만의 신체비밀이 있다면?<option value="">추억하고 싶은 날짜가 있다면?<option value="">받았던 선물 중 기억에 남는 독특한 선물은?<option value="">유년시절 가장 생각나는 친구 이름은?<option value="">인상 깊게 읽은 책 이름은?<option value="">일긍ㄴ 책 중에서 좋아하는 구절이 있다면?<option value="">자신이 두번째로 존경하는 인물은?<option value="">친구들에게 공개하지 않은 어릴 적 별명이 있다면?<option value="">초등학교 때 기억에 남는 짝궁 이름은?<option value="">다시 태어나면 되고 싶은 것은?<option value="">내가 좋아하는 캐릭터는?</select>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		비민번호확인답변</td>
+		<td class=ab>
+		<input type="text" name="passwd2ans" size="42" maxlength="7" class = box>
+		</td>
+	</tr>
+
+
+
+  </tbody>
+  </table>
+  <br>
+   <input type ="submit" value = "가입" class = fbtn>
+   <input type = "reset" value="초기화" class = fbtn>
+  </form>
+  </center>
+ </body>
+</html>

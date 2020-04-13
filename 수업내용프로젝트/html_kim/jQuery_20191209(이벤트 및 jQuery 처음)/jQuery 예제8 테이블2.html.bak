@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <title>Document</title>
+  <style type ="text/css">
+	.silver{background-color:silver;}
+</style>
+
+	<script>
+		$(document).ready(function(){
+			$('#txtPassword').keyup(function(){
+				$('#lblError').text("")
+			});
+			$('#txtPasswordConfirm').keyup(function(){
+				if($('#txtPassword').val()!= $('#txtPasswordConfirm').val()){
+				$('#lblError').text("");
+				$('#lblError').html("<b>암호가 틀립니다.</b>");
+				}
+				else{
+					$('#lblError').text("");
+					$('#lblError').html("<b> 암호가 맞습니다.</b>");
+				}
+				
+			});
+			});
+
+	</script>
+ </head>
+ <body>
+  <table style="border: 1px solid skyblue;">
+  <tr>
+	<td>암호 :</td>
+	<td><input type="password" id="txtPassword" size ="20"/></td>
+  </tr>
+  <tr>
+	<td>암호확인 :</td>
+	<td><input type="password" id="txtPasswordConfirm" size ="20"/></td>
+  </tr>
+  </table>
+  <div id="lblError"></div>
+ </body>
+</html>

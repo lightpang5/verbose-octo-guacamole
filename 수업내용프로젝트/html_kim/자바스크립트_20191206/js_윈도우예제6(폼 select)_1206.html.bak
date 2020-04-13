@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+
+  <script>
+	function idong(sun)
+	{
+		if(sun.options[0].selected)
+			location.href="http://www.daum.net"
+		else if(sun.options[1].selected)
+			location.href="http://www.naver.com"
+		else if(sun.options[2].selected)
+			location.href="http://www.google.com"
+	}
+	//for(var i=0; i<mw.yy.options.
+	//mw.yy.option[i]
+
+  </script>	
+ </head>
+ <body>
+	<h3>
+		이동할 사이트를 선택하세요.
+	</h3>
+	<form name ="myForm">
+		<select name="suntek" onChange=idong(myForm.suntek)>
+			<option> 다음
+			<option> 네이버
+			<option> 구글
+		</select>
+	<input type ="button" value="확인" onClick=idong(myForm.suntek)>
+	</form>
+ </body>
+</html>

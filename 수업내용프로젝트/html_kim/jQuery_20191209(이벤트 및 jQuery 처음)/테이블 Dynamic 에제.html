@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+  <style>
+  	table{width:500px;border:double red 5px}
+	</style>
+  <script>
+	function createAddRow(){
+		var name = document.createElement("input");
+		name.setAttribute("type","text");
+		name.value="Kim";	name.id="name";
+
+		var age = document.createElement("input");
+		age.setAttribute("type","text");
+		age.value="25";		age.id="age";
+
+		var del = document.createElement("input");
+		del.setAttribute("type","button");
+		del.value="삭제";		del.id="del";
+
+		del.setAttribute("onclick", "removeHang(this)");
+		var taList = document.getElementById("tableList");
+
+		var row = taList.insertRow(taList.rows.length);
+		var td1 = row.insertCell(0);
+		var td2 = row.insertCell(1);
+		var td3 = row.insertCell(2);
+		td1.appendChild(name);
+		td2.appendChild(age);
+		td3.appendChild(del);
+	}
+	function removeHang(obj){
+		var td = obj.parentNode;
+		var tr = td.parentNode;
+		var table = tr.parentNode;
+		table.removeChild(tr);
+	}
+
+  </script>
+ </head>
+ <body>
+	<h1> 테이블 Dynamic</h1>
+	<form name="f">
+		<input type="button" value="행추가" onclick="createAddRow()"/><br/>
+		<br/>
+
+		<table id="tableList">
+			<tr bgcolor="pink">
+				<th>이름</th>
+				<th>나이</th>
+				<th>삭제</th>
+			</tr>
+		</table>
+	</form>
+ </body>
+</html>

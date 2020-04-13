@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+ </head>
+ <body>
+	<h1>클래스를 이용한 선택</h1>
+	<ul>
+		<li class="odd">First Item!</li>
+		<li>Second Item!</li>
+		<li class="odd">Third Item!</li>
+		<li>Forth Item!</li>
+		<li class="odd">Fifth Item!</li>
+	</ul>
+	<p>Last Item!</p>
+	<script>
+		var selectedItem = document.getElementsByClassName("odd");
+		for(var i=0; i<selectedItem.length; i++){
+			selectedItem.item(i).style.color = "red";
+			}
+	</script>
+ </body>
+</html>

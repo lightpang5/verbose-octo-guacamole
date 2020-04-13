@@ -1,0 +1,43 @@
+1. 가입 시 환불계좌정보 필수가 아닙니다.- 그냥 별표만 빼주면 된다..sign.jsp 파일
+
+2. 회원가입 후 메인으로 돌아가면 회원가입 창으로 돌아감 - 해결(insertResult.jsp)파일
+
+3. 비밀번호 js 유효성 검사 확인하기- 원래 영대문자 조건 없다. 해결 > 원래안됨
+
+4. 회원가입 창에서 로그인 완료되면 인덱스로 옮기기 - 
+var thisfilefullname = document.URL.substring(document.URL.lastIndexOf("/") + 1, document.URL.length);
+	로그인이 완료되면 if(thisfilefullname!="sign.jsp")
+			location.reload();
+		else
+			location.href = "index.do?command=index";
+
+
+- (logout.jsp 파일 , header.jsp) 파일
+
+5. 용병신청 유효성검사 - 해결 ( 내 매치, 용병 사이트랑 합치면 됨) - yongsign.jsp, yongedit.jsp
+
+6. 갤러리 상세보기에서 게시글 제목과 내용의 밸런스가 아예안맞다. -문 경 해결(??)
+
+7. 매치 신청에서 처음부터 마감이 들어갈 필요가 있는가 ? - 해결 match_apply_reg.jsp, matchedit.jsp 
+
+8. sign_login 파일 내것과 달라서 아이디 클릭했을 때 효과가 잘 안된다.- 해결 sign_login 파일
+
+[새로운 문제]
+1. 용병 등록 매치 등록 
+아이디 권한 없으면 권한 없다고 알림 뜬다.
+yongedit.jsp , matchedit.jsp 파일 덮어씌우기 - [해결]
+
+2. 용병, 매치 수정하다가 로그아웃하면 화면이 그대로이다..
+
+3. 팀 순위 출력 리그에 등록이 안되어 있을 경우에 처리 및 순위 출력 - [해결] DB Column 추가 , mapper 수정 <!-- 팀관련 sql 모음 by Pang --> 부분 복붙. team_ranking.jsp, TeamRanking_Service.java, LeagueResult_Action ,LeagueResultDto.java, LeagueDto 파일 복붙
+
+4. 선수 명단 출력시 가입된 선수가 없으면 에러 - [해결]team_player.jsp , TeamPlayer_Service.java 
+
+5. 가입신청 후에 로그아웃하고 로그인하면 중복가입으로 DB에 들어가나 출력할 때는 중복 무시하고 가입한 사람 한명씩만 출력 - [해결] team_apply.jsp
+
+6. 관리자의 권한이 필요한 페이지에서 로그아웃 해도 다른 곳으로 튕기지 않는 현상..
+
+7. 선수명단에 번호와 이름 포지션 띄우기- [해결]
+
+8. 팀등록을 해도 사진이 서버로 저장되지 않는다
+

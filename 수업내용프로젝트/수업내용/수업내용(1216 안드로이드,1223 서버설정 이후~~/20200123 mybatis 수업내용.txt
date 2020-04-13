@@ -1,0 +1,23 @@
+마크업 형태의 xml .
+오후 수업 마이바티스 형태 데이터 처리(입력 화면, 수정, 삭제
+마이바티스 방식의 장점은 Mapper에서 sql 친다.문자열 치는게 아니라 sql 치는게 쉽다.
+
+project
+package		▶ controller (전체적인 지능 해당. 여기서 시작해서 url 패턴을 찾아옴)
+				▶ Cominterface.java(인터페이스) 클래스는 아님.
+				▶ Service1.java( [원래 1차적인 jsp 페이지였으나jav 로 그대로 					옮긴 것이 서블릿 페이지 기능은 같을 수 있으나 자바페이지] 					DB구문연결 처리
+				   --> 웹페이지 연결, 서블릿페이지) [SangpumImpl]
+				▶connection.java(서블릿 -> urlpatten)[ControllerServlet]
+		▶ model	
+				▶ DTO.java(Getter,Setter)[SangpumImpl]
+				▶ Action1.java(웹페이지에서 service로 연결)[SangpumModel]
+		▶ mybatis 
+				▶ conn.xml (DB 연결, [Configuration]
+			  	▶ mapper.xml(DB 처리구문 , [DataMapper]
+			  	▶ map.java (프로젝트 DB 설정[SqlMapConfig]
+
+webcontent	▶ index.html(sang.bo~~)
+		▶ sangpum_list.jsp
+
+
+

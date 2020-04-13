@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>프레임테스트</title>
+ </head>
+<frameset frameborder = 0 rows ="20%,80%">
+<frame src="introduction.html" name ="sub">
+<frameset cols="20%,80%">
+<frame src="menutest.html" name = "menu">
+<frame src="FirstWeb.html" name = "main">
+</frameset>
+</frameset>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style></style>
+  <script>
+  		var t_trans;
+		t_trans = 23;
+		document.write("<h1>변수 t_trans의 값=</h1>"+t_trans+"<br/>");
+		t_trans = "문자형으로 변환되었지롱";
+		document.write("<h1>변경된 변수 t_trans의 값=</h1>"+t_trans+"<br/>");
+		
+		 function getGrade(){
+			 kor=95;
+			 }
+			 var kor=100;
+			 getGrade();
+			 document.write("국어 점수 : "+kor+"<br/>");
+			 var incData=1;
+			 var decData=5;
+			 var r1=r2=0;
+			 r1=15%6; document.write("15%3 : " +r1+"<br/>");
+			 document.write("incData++ : "+ incData++ +"<br/>");
+			 document.write("nowincData : "+ incData +"<br/>");
+			 document.write("++incData : "+ ++incData +"<br/>");
+			 document.write("decData-- : "+decData-- +"<br/>");
+			 document.write("--decData : "+--decData +"<br/>");
+			 r2=incData*decData;
+ 			 document.write("incData*decData : "+r2 +"<br/>");
+
+			var x=5;
+			var y="15";
+			var result;
+			result=(x>y);
+			document.write("x > y : "+ result +"<br/>");
+			document.write("1번x : "+ x +"y :"+y+"<br/>");
+			result=(x==y);
+			document.write("x == y : "+ result +"<br/>");
+			document.write("2번x : "+ x +"y :"+y+"<br/>");
+			result=(x===y);
+			document.write("x === y : "+ result +"<br/>");
+			result=(x!=y);
+			document.write("x != y : "+ result +"<br/>");
+			result=(x!==y);
+			document.write("x !== y : "+ result +"<br/>");
+  </script>
+ </head>
+ <body>
+
+ </body>
+</html>

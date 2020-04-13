@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+	<script>
+
+	function select1(form)
+	{
+		for(var i=0; i < form.subject. length; i++)
+		{
+			if(form.subject[i].checked == true)
+			{
+				alert(form.subject[i].value + "선수를 선택했네요.")
+			}
+		}
+	}
+	</script>
+
+
+ </head>
+ <body>
+ 		축구선수 선택 <p>
+		<form name="soccer" >
+			
+			<input type = "radio" name ="subject" value="리오넬메시" checked>메 시
+			<input type = "radio" name ="subject" value="크리스티아누호날두" >날 도
+			<input type = "radio" name ="subject" value="페르난도토레스">토 레 스
+			<input type = "radio" name ="subject" value="모하메드살라">살 라
+			<input type = "button" value ="확인" onClick="select1(subject.soccer)">
+			
+
+		
+		</form>
+ </body>
+</html>

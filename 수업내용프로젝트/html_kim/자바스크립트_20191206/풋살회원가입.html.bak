@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>회원가입</title>
+  <link rel="stylesheet" type="text/css" href="css\join.css"/>
+  <style>
+	 body{
+  	background-image:url("img/bgkorea_copy.jpg");
+	background-position: center top;
+	background-attachment:scroll;
+	background-repeat: repeat;
+	}
+	</style>
+	<SCRIPT>
+		function jb()
+		{
+				alert("사용이 가능할껍니다.")
+		}
+		function email(mail)
+		{
+			console.log(mail.length);
+			for(i=0;i<mail.length;i++)
+				{
+					if(mail.options[i].selected)
+						my_form.em2.value=mail.options[i].value
+				}
+		}
+		function address()
+		{
+			alert("아직 기능을 사용할 수 없습니다.")
+		}
+		function sign(mw)
+		{
+			var id_len = my_form.id.value.length
+			var pass_len = my_form.pw.value.length
+			var str=" "
+			if(mw.fw.checked)
+				str +="FW "
+			if(mw.mf.checked)
+				str +="MF "
+			if(mw.df.checked)
+				str +="DF "
+			if(mw.gk.checked)
+				str +="GK "
+			for(var i=0; i < mw.gender.length; i++)
+				{
+					if(mw.gender[i].checked == true)
+					{
+						var gen = mw.gender[i].value
+					}
+				}
+			for(var j=0; j < mw.team.length; j++)
+				{
+					if(mw.team[j].checked == true)
+					{
+						var tm = mw.team[j].value
+					}
+				}
+			if((pass_len >= 4) && (id_len >= 4))
+			{
+				if(my_form.pw.value!=my_form.pwch.value)
+					alert("비밀번호와 비밀번호 확인이 같은지 확인해주세요.")
+				else{
+				alert("회원가입 성공")
+				alert("**입력 정보 출력** \nID : "+my_form.id.value+"\n이름 : "+my_form.name.value+"\n성별 : "+gen+"\n휴대폰 번호 : "+my_form.hp1.value+" - "+my_form.hp2.value+" - "+my_form.hp3.value+"\n이메일 주소 : "+my_form.em1.value+" @ "+my_form.em2.value+"\n주소 : "+my_form.adrnum.value+"\n"+my_form.simpleadr.value+"\n"+my_form.detailadr.value+"\n생년월일 : "+mw.yy.value+"."+mw.mm.value+"."+mw.dd.value+"\n실력 : "+mw.lv.value+"\n소속팀 유무 : "+tm+"\n선호포지션 : "+str+"\n추천인 ID : "+my_form.chuchun.value+"\n비밀번호 확인 질문 : "+my_form.passwd2.value+"\n비밀번호 답변 : "+my_form.passwd2ans.value)
+				}
+			}
+			else
+			{
+				if(my_form.pw.value!=my_form.pwch.value)
+					alert("비밀번호와 비밀번호 확인이 같은지 확인해주세요.")
+				else{
+				alert("4자 이상의 아이디와 암호만 유효합니다 다시 입력하세요.")
+				my_form.id.value=""
+				my_form.id.focus()
+				my_form.pw.value=""
+				my_form.pw.focus()
+				}
+			}
+		}
+	</SCRIPT>
+ </head>
+ <body>
+	<center> 
+	<img src="img/koreatiger.jpg" title="한국로고" align = left>
+		<form name="my_form">
+		<br><br><br><br><br><br>
+		<table border=1 cellpadding=5 align ="center" class=abc>
+ <thead>
+ <tr bgcolor=black align = "center">
+ <td colspan = 2><font color="white">
+ <IMG src="img/ass2.png" width="25px" height="25px"> 풋살 회원가입 <IMG src="img/ass2.png" width="25px" height="25px"> 
+ </td>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+	 <td class = ff><font color="#FFCC33">
+	 * </font>아이디
+	 </td>
+	 <td class=ab>
+	 <input type ="text" name ="id"  maxlength="10" value="I D" class = box> 
+	 <input type="button" value="중복확인" class=btn onClick=jb()>
+	  </td>
+  </tr>
+  <tr>
+	  <td class=ff><font color="#FFCC33">
+		* </font>비밀번호</td>
+		<td class=ab>
+		<input type ="password" name ="pw"  maxlength="10" value="" class=box> <font color="#FFCC33">
+	* </font><font size=3pt>비밀번호확인</font><input type ="password" name ="pwch"  maxlength="10" value="" class=box>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff><font color="#FFCC33">
+			* </font>이름</td>
+		<td class=ab>
+		<input type ="text" name ="name"  maxlength="10" value="김풋살" class=box>
+		</td>
+	</tr>
+	<tr bgcolor=black align = "center">
+	<td colspan=2><font color="white"><IMG src="img/ass2.png" width="25px" height="25px"> 개 인 정 보 <IMG src="img/ass2.png" width="25px" height="25px">	</font></td>
+	</tr>
+	<tr>
+		<td class=ff>
+		성별</td>
+		<td class=ab>
+		<input type ="radio" name="gender" value="여성" checked >여성<br>
+		<input type ="radio" name="gender" value="남성"  >남성	 
+		</td>
+	</tr>
+	<tr>
+		<td class =ff><font color="#FFCC33">
+			* </font>
+		휴대폰번호</td>
+		<td class=ab>
+		<input type ="text" name ="hp1" " maxlength="3" value="010" class=box> - 
+		<input type ="text" name ="hp2"  maxlength="4" value="" class=box> -
+		<input type ="text" name ="hp3"  maxlength="4" value="" class=box>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff><font color="#FFCC33">
+			* </font>
+		이메일주소</td>
+		<td class=ab>
+		<input type ="text" name ="em1"  maxlength="15" value="" class=box> @ 
+	<font size=3pt></font><input type ="text" name ="em2"  maxlength="10" value=" " class=box>
+		<select name="mail" class=box onChange="email(form.mail)">
+		<option >직접입력
+		<option>naver.com
+		<option>hanmail.net
+		<option>gmail.com
+		</select><br>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		주소</td>
+		<td class=ab>
+		<input type ="text" name ="adrnum" size ="50" maxlength="50" value="우편번호" class=box> <input type="button" value="주소검색" class="btn" onClick="address()"><p>
+        <input type ="text" name ="simpleadr"  maxlength="50" value="기본주소" class=adrbox><p>
+		<input type ="text" name ="detailadr"  maxlength="50" value="상세주소" class=adrbox><br>
+		</p>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		생년월일</td>
+		<td class=ab>
+	  <select name = "yy" class=btn>
+	  form.yy.value
+	  <option >----
+	  <option >1984
+	  <option >1985
+	  <option >1986
+	  <option >1987
+	  <option >1988
+	  <option >1989
+	  <option >1990
+	  <option >1991
+	  <option >1992
+	  <option >1993
+	  <option >1994
+	  <option >1995
+	  <option >1996
+	  <option >1997
+	  <option >1998
+	  <option >1999
+	  <option >2000
+	  <option >2001
+	  <option >2002
+	  <option >2003
+	  <option >2004
+	  <option >2005
+	  </select>
+	   <select name = "mm" class=btn>
+	  <option >--
+	  <option >01
+	  <option >02
+	  <option >03
+	  <option >04
+	  <option >05
+	  <option >06
+	  <option >07
+	  <option >08
+	  <option >09
+	  <option >10
+	  <option >11
+	  <option >12
+	  </select>
+	  <select name = "dd" class=btn>
+	  <option >--
+	  <option >01
+	  <option >02
+	  <option >03
+	  <option >04
+	  <option >05
+	  <option >06
+	  <option >07
+	  <option >08
+	  <option >09
+	  <option >10
+	  <option >11
+	  <option > 12
+	  <option >13
+	  <option >14
+	  <option >15
+	  <option >16
+	  <option >17
+	  <option >18
+	  <option >19
+	  <option >20
+	  <option >21
+	  <option >22
+	  <option >23
+	  <option >24
+	  <option >25
+	  <option >26
+	  <option >27
+	  <option >28
+	  <option >29
+	  <option >30
+	  <option >31
+	  </select>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff >사진</td>
+		<td class=ab><input type ="file" name="pic"></td>
+	</tr>
+	<tr>
+		<td class=ff>
+		실력</td>
+		<td class=ab>
+		<select name="lv" size="1" class = box>
+		<option >상
+		<option >중상
+		<option >중
+		<option >중하
+		<option >하
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		소속팀존재유무</td>
+		<td class=ab>
+		<input type="radio" name="team" value="있음" checked>있음
+		<input type="radio" name="team" value="없음">없음
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		선호포지션</td>
+		<td class=ab>
+		<input type="checkbox" name=fw value="">FW <input type="checkbox" name=mf value="">MF <input type="checkbox" name=df value="">DF <input type="checkbox" name=gk value="">GK 
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		추천인ID</td>
+		<td class=ab>
+		<input type="text" name="chuchun" size="20" maxlength="10" class = box> 
+		</td>
+	</tr>
+	<tr>
+		<td class=ff >
+		비밀번호확인질문</td>
+		<td class=ab>
+		<select name="passwd2" size="1"  style="width:350px;" class = box>
+		<option>기억에 남는 추억의 장소는?
+		<option>자신의 인생 좌우명은?
+		<option>자신의 보물 제1호는?
+		<option>가장 기억에 남는 선생님 성함은?
+		<option>타인이 모르는 자신만의 신체비밀이 있다면?
+		<option>받았던 선물 중 기억에 남는 독특한 선물은?
+		<option>유년시절 가장 생각나는 친구 이름은?
+		<option>인상 깊게 본 축구경기는?
+		<option>신었던 축구화 중에서 제일좋은 축구화는?
+		<option>자신이 제일 좋아하는 축구팀은?
+		<option>친구들에게 공개하지 않은 어릴 적 별명이 있다면?
+		<option>초등학교 때 기억에 남는 짝꿍 이름은?
+		<option>다시 태어나면 되고 싶은 축구선수는?
+		<option>제일 좋아하는 축구선수의 이름은?</select>
+		</td>
+	</tr>
+	<tr>
+		<td class=ff>
+		비밀번호확인답변</td>
+		<td class=ab>
+		<input type="text" name="passwd2ans" size="42" maxlength="7" class = box>
+		</td>
+	</tr>
+  </tbody>
+  </table>
+  <br>
+   <input type ="button" value = "가입" class = "fbtn" onClick="sign(this.form)">
+   <input type = "reset" value="초기화" class = fbtn>
+  </form>
+  </center>
+ </body>
+</html>

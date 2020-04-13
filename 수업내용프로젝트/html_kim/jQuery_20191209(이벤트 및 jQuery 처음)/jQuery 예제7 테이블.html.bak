@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+  <style type="text/css">
+	 .bord{ border: 5px solid green;}
+  </style>
+  <script>
+	$(function(){
+		$("#id,#pwd").focus(function(){
+			$(this).addClass("bord");
+		});
+		$("#id,#pwd").blur(function(){
+			$(this).removeClass("bord");
+		});
+	});
+
+  </script>
+ </head>
+ <body>
+  <h1>Login</h1>
+  <table>
+  	<tr>
+	<td>ID</td>
+	<td>
+		<input type="text" size="12" id="id" />
+	</td>
+	</tr>
+	<tr>
+		<td>PWD</td>
+		<td>
+			<input type ="password" name ="passwd" id="pwd" size="12"/>
+		</td>
+	</tr>
+	<tr>
+	<td colspan="2">
+		<input type="submit" value="로그인"/>
+		<input type="reset" value="취소"/>
+	</td>
+	</tr>
+  </table>
+ </body>
+</html>

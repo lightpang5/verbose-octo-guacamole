@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <title>Document</title>
+	<style type = "text/css">
+		.bg{background-color:Yellow;}
+		.bg2{background-color:gray;}
+		.bgSilver {background-color:Silver;}
+		.horizontal{float:left; list-style:square; margin:20px;}
+		.deep{float:left; list-style:circle; margin:20px;}
+
+	</style>
+
+  <script>
+	$(document).ready(function(){
+		//$('li > u').addClass('bg');
+		$("#myFavorites > li").addClass("horizontal");
+		
+		jQuery('#jquery').click(function(){
+			$('li > u').addClass('bg');
+			alert('jQuery 클릭');
+		});
+		jQuery('.ajax').click(function(){
+			$('li > u').addClass('bg2');
+			alert('ajax 클릭');
+			});
+	});
+  </script>
+ </head>
+ <body>
+  <h3>관심사항</h3>
+  <ul id="myFavorites">
+  <li><u>JAVA</u></li>
+  <li><u>JSP/SERVLET</u></li>
+  <li id="jquery">jQuery</li>
+  <li class="ajax">Ajax</li>
+  </ul>
+ </body>
+</html>

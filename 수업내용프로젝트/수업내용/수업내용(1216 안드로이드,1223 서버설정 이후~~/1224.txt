@@ -1,0 +1,112 @@
+12/24 화요일
+회원가입양식 form에 active=""주고 submit버튼 눌러서
+새로운jsp파일에서 받아주고 출력하기
+String str=request.getParameter("id");
+String[] str = 
+
+------------------------------------------------------------------------
+
+
+이클립스에서 예제 타이핑(HunderedServlet클래스)
+톰캣경로lib에서 servlet-api 라이브러리를 jdk/lib이랑 jre/lib에 복붙
+그리고 라이브러리추가
+톰캣경로 webapps에 만들어둔 폴더 안에 WEB-INF라는 폴더 만들고
+WEB-INF폴더속에 classes라는 폴더를 만든다.
+WEB-INF폴더속에 web.xml을 만든다
+
+classes에는 모든 클래스파일을 담는다. <<아까 예제파이핑했던 클래스파일 여기로(자바파일아님)
+web.xml에는 클래스파일등록(일단 아래내용 복붙한다. 선생님이 메모장에 적어준거야)
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name></servlet-name>
+        <servlet-class></servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name></servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+ 
+</web-app> 
+
+클래스 더 등록하려면
+<servlet>
+        <servlet-name></servlet-name>
+        <servlet-class></servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name></servlet-name>
+        <url-pattern></url-pattern>
+    </servlet-mapping>
+까지만 사이에 추가해주자
+
+servlet-name은 위 아래 두개있는데 그냥 똑같이 맞추기만하면 ㅇㅋ
+
+servlet-class는 클래스파일명 적어준다.(확장자빼고)
+
+url-pattern은 url 쓰고싶은거 적어준다. (hund라고 적어두면 주소는 localhost:8080/hund )
+
+****************************중요********************************
+위의 클래스파일과 xml파일등록할때는 톰캣을 stop해두고 해라. 톰캣 죽으면 재설치해야함
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+
+
+public class HunderedServlet extends HttpServlet {
+	
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+		
+		int total=0;
+		for(int cnt=1; cnt<101; cnt++)
+			total +=cnt;
+		resp.setContentType("text/html;chareset=utf-8");
+		PrintWriter out = resp.getWriter();
+		out.println("<html>");
+		out.println("<head><title>1부터 100까지 더하는 서블릿</title></head>");
+		out.println("<body>");
+		out.printf("1부터 100까지 합은=%d",total);
+		out.println("</body></html>");
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+    <servlet>
+        <servlet-name>servletTest1</servlet-name>
+        <servlet-class>HunderedServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletTest1</servlet-name>
+        <url-pattern>/hund</url-pattern>
+    </servlet-mapping>
+ 
+</web-app> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

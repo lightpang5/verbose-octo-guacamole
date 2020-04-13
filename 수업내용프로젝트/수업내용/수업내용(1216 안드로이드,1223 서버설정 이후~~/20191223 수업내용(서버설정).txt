@@ -1,0 +1,86 @@
+서버페이지를 아주 짧게 작업을 한다.
+서버페이지를 할 때 문법을 먼저하는데 최종적으로 DB 처리하는 작업은 방법이 많다.
+지금같은 mybatis 도 있고 그 외에 작업들도 형태가 추가가 된다.
+
+서버페이지 설정(웹호스팅하려나 ?)  : 
+그페이지가 다른사람에겐 안 보인다.
+다른 사람들이 서버에 접속해서 내 홈페이지를 본다.
+db 처리하는 문장 자체가 서버 안에서 가능.(서버의 환경이 >> main환경이 있어야만 세팅가능)
+
+git 의 사용과 비슷하다..? 
+
+jsp만 가능한 무언가 ... 만들어낼 것 인지 ?
+제일 중요한 작업은 결과로는 데이타 처리를 하겠습니다 가 제일 중요하다.
+Web 에서 데이터는 form 에서 발생한다. 그 공간 안에서 사용자들이 본인이 원하는 정보 입력 후 데이타화.
+결국 form 을 만들어서 값을 처리하는 것.
+
+
+
+
+
+아파치 톰캣 >> Download  >> Tomcatt 8 버전 Service installer
+
+jsp ( 훨씬 큰 서버페이지 ) - php   (리눅스 공짜)  , asp (windowserver)
+
+localhost:8080 ( 서버를 작업할 수 있는 상태가 된 내컴퓨터)
+127.0.0.1:8080
+
+서버페이지는 소스상으로 공개가 안된다 만든 나만 확인이 가능.
+
+반드시보여지는 톰캣 안에 jsp 넣고 서버통해서도 실행해야한다. 서버라는 환경이 있어야 jsp 실행가능.
+jsp 는 서버환경(서버환경 통해서 ! 실행해야한다)으로 실행할때와 다르다.
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+jsp 페이지 맨 위에 항상 붙는다 !
+
+바로 값을 출력 ?
+<%= %>
+
+선언문 같은 경우에는 ! 를 이용한다.
+ <%! %>  
+선언문장처럼 사용하는 @...
+<%@ page import ="java.util.Date" %>
+
+[내장객체 예제 ..]
+submit 을 누르면 폼 안에 들어있는 아이들의 정보를 그대로 데리고 action 에 연결되어있는 페이지로 이동.
+
+1) action 으로 묶여있는 문서는 일반 html 일 수 없다. 왜냐?
+html 문서들 끼리는 서로 정보를 주고받는 기능이 없다.페이지에 있는 정보를 다음페이지에 처리하고싶으면
+그 일은 서버페이지가 한다.정보 받아서 처리.. >> 이러~한 입력들을 submit 통해 action 으로 
+데리고 간다. 
+2) action 안에 들어가는 문서 만들고 연결시킬건데 jsp (서버페이지) 문서밖에 안된다.
+문서명으로 이동한다.
+
+method 에 get 과 post 의 주소창이다르다 
+get >> http://localhost:8080/Exam/jspexam_submit.jsp?name=james&studentNum=123123&sex=man&country=대한민국    [네이버는 get 방식이다 ] 뒤에 ? 가있다. ?~~ = ~~ & ~~ = ~~ 이런식으로 공개된다.
+
+post >> http://localhost:8080/Exam/jspexam_submit.jsp
+	post 는 공개가 안되고 비밀스럽게 가져간다.
+
+★★★ request.getParameter 제일중요 나를 요청한 페이지로부터 변수를 가져와라.
+ 이렇게 가져와서 이페이지에서 변수던 만들어서 db 연결 다해라
+	>> 들어가는 매개변수가 String 타입..그래서 String 으로 받는다.
+ form 안에서 들어가는 작업은 모두 글자...
+
+ex) String name = request.getParameter("name");
+		String studentNum = request.getParameter("studentNum");
+		String sex = request.getParameter("sex");
+		String country = request.getParameter("country");
+
+ex) <%@ page import="java.util.Enumeration" %>
+	<% request.setCharacterEncoding("UTF-8"); %>
+	<h2> 취미와 가보고 싶은 국가 결과</h2>
+	<%
+		//Enumeration e = request.getParameterNames();
+		Enumeration <String> e = request.getParameterNames();
+		while(e.hasMoreElements()){
+			//String name = (String) e.nextElement();
+			String name = e.nextElement();
+			String [] data = request.getParameterValues(name);
+			if(data!=null){
+				for(String eachdata : data)
+					out.println(eachdata + " ");
+			}
+		out.println("<p>");
+		}
+		%>

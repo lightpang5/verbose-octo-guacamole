@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ 
+  <title>DOM API</title>
+  <style type="text/css">
+	#myDiv{ border:2px solid blue; width:300px; height:100px; font-size:20px;}
+	</style>
+	<script>
+		window.onload = Page_Load;
+		function Page_Load(){
+			var btnChange = document.getElementById("btnChange");
+			btnChange.onclick = function(){
+				var myDiv = document.getElementById("myDiv");
+				myDiv.style.backgroundColor = "yellow";
+				myDiv.style.width = parseInt("400") + "px";
+				myDiv.style.height = parseInt("400") + "px";
+				document.getElementById("spnMsg").style.color ='red';
+				document.getElementById("spnMsg").style.fontStyle="italic";
+		};
+		}
+
+		</script>
+ </head>
+ <body>
+	<div id="myDiv" style="height:100px;">
+	<span id="spnMsg"> DOM API </span>: 요소 검색(객체 접근)
+	</div>
+	<input type ="button" id ="btnChange" name = "btnChange" value="스타일변경"/>
+ </body>
+</html>

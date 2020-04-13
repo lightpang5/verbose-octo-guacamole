@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>박스예제 2</title>
+<style>
+p{
+border-width: 10pt;border-color: blue;
+border-style: double;
+}
+#login_box{
+	width:200px;
+	height:150px;
+	background-color:#eeeeee;
+	border:solid 2px #aaaaaa;
+	border-radius:15px;
+	box-shadow:2px 2px 3px #888888;
+	text-align:center;
+	}
+h3{
+	width:500px;
+	}
+#border1 {
+	border:solid 1px #ff0000;
+	}
+ #border2 {
+	border:double 5px #00ff00;
+	}
+#border3 {
+	border-top:dotted 1px #0000ff;
+	border-bottom:dashed 1px #0000ff;
+	}
+#border4{
+	border-left:solid 3px #ff00ff;
+	border-right:solid 3px #ff00ff;
+	}
+	</style>
+ </head>
+ <body>
+ <div id="login_box"> 로그인 화면</div>
+ 	<p>
+	border 스타일을 테스트 하고 있다. 
+	border의 종류를 살펴보겠다.
+	</p>
+ 	<h3 id="border1">안녕안녕 졸리니 잠이오니</h3>
+ 	<h3 id="border2">안녕안녕 졸리니 잠이오니</h3>
+	<h3 id="border3">안녕안녕 졸리니 잠이오니</h3>
+	<h3 id="border4">안녕안녕 졸리니 잠이오니</h3>
+ </body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+ <head>
+ 
+  <title>Document</title>
+ </head>
+ <body background = "img/Futsal_groundrule.jpg">
+  <h2> 풋살신청 </h2>
+  <ul>
+  	
+		<a href = "introduction.html" target = "main"><h3>이력서양식</h3></a>
+
+  </ul>
+ </body>
+</html>

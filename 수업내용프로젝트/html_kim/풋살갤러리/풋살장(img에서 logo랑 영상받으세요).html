@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>풋살장</title>
+  <script type="text/javascript" src="/js/libs/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/libs/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/js/datepicker.js"></script>
+	<script type="text/javascript" src="/js/common/common.js"></script>
+	<script type="text/javascript" src="/js/common/form_check.js"></script>
+  <link rel="stylesheet" type="text/css" href="css\join.css"/>
+  <link rel="stylesheet" href="css/classic.css">
+	<link rel="stylesheet" href="css/classic.date.css">
+	<link rel="stylesheet" href="css/classic.time.css">
+  <script>
+  	$(function(){
+ var shrinkHeader = 30;
+  $(window).scroll(function() {
+    var scroll = getCurrentScroll();
+      if ( scroll >= shrinkHeader ) {
+           $('#navtop').addClass('shrink');
+		   
+        }
+        else {
+            $('#navtop').removeClass('shrink');
+			
+        }
+  });
+function getCurrentScroll() {
+    return window.pageYOffset || document.documentElement.scrollTop;
+    }
+});
+
+
+
+
+
+
+  </script>
+  <style>
+  .borderRightLeft {
+    display: inline-block;
+    color: #474E51;
+    position: relative;
+}
+
+.borderRightLeft::after {
+     content: '';
+     position: absolute;
+     width: 100%;
+     transform: scaleX(0);
+     height: 2px;
+     bottom: 0;
+     left: 0;
+     background-color: #5778F3;
+     transform-origin: bottom left;
+     transition: transform .3s ease-in-out;
+ }
+
+.borderRightLeft:hover::after {
+     transform: scaleX(1);
+     transform-origin: bottom right;
+ }
+
+.textRightLeft {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    overflow: hidden;
+    background: #474E51;
+    position: relative;
+    line-height: 40px;
+    color: #fff;
+}
+
+.textRightLeft span {
+    display: block;
+}
+
+.textRightLeft:hover span {
+    animation: animButtonSpan 0.4s;
+}
+
+@keyframes animButtonSpan {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    33% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+
+    66% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.textAnimationLeft {
+    height: 40px;
+    width: 120px;
+    text-align: center;
+    overflow: hidden;
+    background: #474E51;
+    position: relative;
+    line-height: 40px;
+    color: #fff;
+	float:right;
+}
+
+.textAnimationLeft:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background: #5778F3;
+    transition: transform .25s ease-in;
+}
+
+.textAnimationLeft:hover::before {
+    transform: translateX(0);
+}
+
+.textAnimationLeft span {
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+
+.textAnimationLeft:hover span {
+    animation: animButtonSpan 0.4s;
+}
+
+@keyframes animButtonSpan {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+
+    50.001% {
+        transform: translateX(-20px);
+    }
+
+    60% {
+        transform: translateX(0px);
+    }
+
+}
+
+
+.slideDown {
+    width: 120px;
+    height: 40px;
+    color: #5878F3;
+    padding: 0 14px;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+	
+	
+}
+
+.slideDown::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    background-color: #5878F3;
+    transition: transform 0.2s ease-out;
+    z-index:-1;
+}
+
+.slideDown:hover {
+    color: #fff;
+    transition: 0.2s ease-out;
+	
+}
+
+.slideDown:hover::after {
+    transform: translateY(0);
+    transition: transform 0.2s ease-in;
+	
+
+}
+
+
+
+
+
+
+
+  	body {
+		margin:0;
+	}
+
+	ul {
+		list-style-type:none;
+	}
+	#header {
+	text-align : center;
+		width : 100%; height : 460;
+		
+		position : relative;
+		
+	}
+	#navtop {
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : fixed;
+		left : 0; top : 50px;
+		z-index : 99999;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+	#navtop.shrink {
+		top:0px;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		
+    
+	}
+	#navtop_logo.shrink {
+		width : 60px; height : 100%;
+	}
+
+	
+	#navtop_logo {
+		float : left;
+		width : 95px; height : 120px;
+		
+		color : #ffffff;
+		position : relative;
+		left : 30px; top : -30px;
+	}
+	#navtop_menu {
+		float : left;
+		width : 960px; height : 99%;
+		color : #ffffff;
+		position:relative;
+		right: -300px;
+		
+		
+		
+	}
+	#navtop_menu li {
+		display : inline;
+		margin-right : 50px;
+		font-size : 22px;
+		height: 85px;
+		font-weight: 700;
+		transition: all 0.3s ease-out;
+		
+	}
+	#navtop_login {
+		float : right;
+		width : 100px; height : 99%;
+		color : #ffffff;
+		font-size : 17px;
+		font-weight: 700;
+		
+		
+	}
+	#navmid {
+		clear : both;
+		width : 100%; height : 60px;
+		background-color: #363636;
+		color : #ffffff;
+		background-color: rgba(0, 0, 0, 0.45);
+		position : absolute;
+		bottom : 8px;
+		
+		
+		
+		
+		
+	}
+	#navmid li {
+		display : inline;
+		margin-right : 200px;
+		font-size : 30px;
+
+		
+   
+    font-family: sans-serif;
+    font-weight: normal;
+    line-height: 26px;
+   
+    word-spacing: 0;
+    letter-spacing: -0.3px;
+
+		
+	}
+	#navmid_1 {
+		float : left;
+		width: 32%; height:100%
+		
+		
+		
+	}
+	#navmid_2 {
+		float : left;
+		width: 31.5%; height:100%
+	}
+	#navmid_3 {
+		float : left;
+		width: 32%; height:100%
+	}
+	
+	#main {
+		
+		
+		width : 960px; height : 1500px;
+		margin : 0 auto;
+		
+
+	}
+	#main {
+		width : 1270px;
+		height : 900px;
+		
+		margin : 0 auto;
+		
+	}
+	#mainleft {
+		text-align : center;
+		float : left;
+		width : 19%;
+		height : 98%;
+		margin : 6px;
+		
+		
+	}
+	#leftnav {
+		width : 96%;
+		height : 301px;
+		border-style : solid;
+		margin: 2px;
+		background-color : #960707;
+
+	}
+
+	
+	#leftbanner {
+		width : 96%;
+		height : 500px;
+		
+		margin: 2px;
+	}
+
+	#banner1 {
+
+		width : 98%;
+		height : 50px;
+		border-style : solid;
+		margin: 3px;
+		background-color : #EDEDED;
+	}
+
+	#banner2 {
+		width : 98%;
+		height : 50px;
+		border-style : solid;
+		margin: 3px;
+		background-color : #EDEDED;
+	}
+
+	#banner3 {
+		width : 98%;
+		height : 200px;
+		border-style : solid;
+		margin: 3px;
+		background-color : #EDEDED;
+		
+		
+	}
+	#mainright {
+		float : left;
+		width : 79%;
+		height : 98%;
+		margin : 6px;
+	}
+	#video01 {
+		position: relative;
+		z-index:-2;
+	}
+	#navtop a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#navmid a {
+		color: #ffffff;
+		font-size:20px;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#callender {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList {
+		width : 98%;
+		height : 300px;
+		border-style : solid;
+		margin : 3px;
+		background-color : #EDEDED;
+		
+	}
+	#matList a {
+		color: #ffffff;
+		text-decoration: none;
+	}
+	#matjoin {
+		width : 120px; height : 40px;
+	}
+
+
+	
+  </style>
+ </head>
+ <body>
+ 	<header id="header">
+	<video id="video01" autoplay="" playsinline="" muted="" loop="" height="460" width="100%" title="video element"> 
+					<source src="img/video element.mp4" type="video/mp4"> 
+				</video>
+		<div id="navtop">
+			<div id="navtop_logo">
+				 <a href="" ><img src="img/logo.png" width="95px" height="120px"></a>
+			</div>
+			<div id="navtop_menu">
+				<ul>
+					<li class="borderRightLeft"><a href="" >대관</a></li>
+					<li class="borderRightLeft"><a href="" >매치/용병</a></li>
+					<li class="borderRightLeft"><a href="" >리그</a></li>
+					<li class="borderRightLeft"><a href="" >팀커뮤니티</a></li>
+					<li class="borderRightLeft"><a href="" >고객센터</a></li>
+				</ul>
+			</div>
+			<div id="navtop_login">
+				<a href="" >로그인</a>
+			</div>
+		</div>
+		<div id="navmid">
+				<div id="navmid_1" class="slideDown"><a href="">팀매치신청</a></div>
+				<div id="navmid_2" class="slideDown"><a href="">용병등록</a></div>
+				<div id="navmid_3" class="slideDown"><a href="">팀원모집</a></div>
+		</div>
+	</header>
+	<section id="main">
+		<div id="mainleft">
+			
+
+			<div id="leftbanner">
+				<div id="banner1">
+					이용방법
+				</div>
+				<div id="banner2">
+					신규구장소개<br>
+					마우스대면팝업
+				</div>
+				<div id="banner3">
+					지도
+				</div>
+			</div>
+
+
+		</div>
+
+		<section id="mainright">
+			<div id="matList">
+				
+					메인의오른쪽입니다. 여기에 쓰세요
+				
+			</div>
+		</section>
+		
+	</section>
+  
+ </body>
+</html>

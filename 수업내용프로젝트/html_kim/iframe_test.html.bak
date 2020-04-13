@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+ </head>
+ <body>
+	<h1> iframe을 이용해 이미지를 출력해 보자</h1>
+	<iframe src="img/bgson.jpg" scrolling="yes"
+	width="700" height="700" frameborder="yes"
+	align="left">
+	</iframe>
+ </body>
+</html>

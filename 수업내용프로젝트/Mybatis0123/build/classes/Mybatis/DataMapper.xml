@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="abc">
+
+<select id="selectSangpum"  resultType="SangpumDto"><!--  기존의 ResultSet 에 저장해주던 것을 형태 Dto 타입 return 으로 저장해준다. -->
+	select * from exambatis;             
+</select>
+<insert id="insertSangpum" parameterType="SangpumDto">
+	INSERT INTO exambatis (GB_ID, GB_SUBJECT, GB_CONTENTS, GB_FILE) VALUES (#{GB_ID},#{GB_SUBJECT},#{GB_CONTENTS},#{GB_FILE});
+</insert>
+<update id="modifySangpum" parameterType="SangpumDto">
+	Update exambatis set GB_ID = #{GB_ID}, GB_SUBJECT = #{GB_SUBJECT}, GB_CONTENTS = #{GB_CONTENTS}, GB_FILE = #{GB_FILE} where(GB_ID = #{GB_ID});
+
+</update>
+<delete id="deleteSangpum" parameterType="SangpumDto">
+	delete from exambatis where GB_ID = #{GB_ID};
+</delete>
+</mapper>

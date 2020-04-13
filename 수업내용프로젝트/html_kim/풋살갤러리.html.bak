@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.infinitecarousel.js"></script>
+
+
+  <title>풋살 갤러리</title>
+ 
+
+<script type="text/javascript">
+$(function(){
+	$('#carousel1').infiniteCarousel();
+});
+</script>
+
+<style type="text/css">
+#carousel1 {
+	width:100%; height:400px;float:left;	
+	overflow:scroll;
+	
+}
+</style> 
+  <script> 
+(function ($) {
+  // custom css expression for a case-insensitive contains()
+  jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+  };
+ 
+  function filterList(header, list) { 
+  // header is any element, list is an unordered list
+    // create and add the filter form to the header
+    var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text"});
+    $(form).append(input).appendTo(header);
+ 
+    $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+ 	  
+		  $matches = $(list).find('a:Contains(' + filter + ')').parent();
+		  $('subli', list).not($matches).slideUp();
+		  $matches.slideDown();
+		    
+        } else {
+          $(list).find("subli").slideDown();
+        }
+        return false;
+      })
+    .keyup( function () {
+        // fire the above change event after every letter
+        $(this).change();
+    });
+  }
+ 
+ 
+  //ondomready
+  $(function () {
+    filterList($("#form"), $("#list"));
+  });
+}(jQuery));
+ 
+  </script> 
+ <style>
+ 	body{width: 100%;
+		margin: 0 auto ;}
+	header{margin:0 auto;width:1500px;  height: 70px; }
+	nav{margin: 0 auto ;
+		 width:100%;height:30px;  text-align:center;background-color:#EAEAEA;
+	}
+	section{margin:0 auto;width:1200px;height:1700px; background-color:white;
+	}
+	#wrap {
+      position:relative;
+	}
+	.product-head h1{font-size:14px; font-family:Arial, Helvetica, sans-serif; margin-bottom:3px; margin-left:3px;}
+	
+    .product-head {
+      font-size:13px;
+	  padding:2px;
+	  
+	  width:180px;
+    }
+    .filterform input{
+	
+		 font-size:13px;
+		 padding:2px;
+		 border:1px solid #999;
+    }
+	.subli li{
+		padding:5px;
+		margin:3px;
+		list-style:none;
+		width:150px;
+		border-top:1px solid #ccc;	
+		
+		}
+		
+	li a{color:#000; font-family:Arial, Helvetica, sans-serif; font-size:12px}	
+		
+	
+	.pic ul{
+		width:860px;height:800px;float:left;margin:0px 0px;font-size:13px;font-weight:400;
+		list-style-image:none;list-style-type:none;display:block;margin-top:16px;
+	}
+	.pic li{
+		font-size:13px;font-weight:400;height:304px;width:200px;text-align:left;
+		position:relative;margin-left:12px;list-style-type:none;display:list-item;
+		overflow:hidden;float:left;
+	}
+	.pic dt{
+		cursor:pointer;display:table-cell;font-weight:700;
+	}
+	.nick{
+		text-align:left;padding-top:7px;font-size:13px;font-weight:400;margin:0 0;
+	}
+	.date{
+		text-align:left;padding-top:7px;font-size:13px;margin:0 0;
+	}
+	.clear{
+		clear:both;}
+	#topsection{
+		width: 100%;height:250px;
+	 
+	}
+	#logo{
+		clear:both; width:100%; text-align:center;font-size:15pt; font-weight:bold;
+	}
+	
+	.nav_ban ul{
+		 float:left;
+		 text-align:center;background-color:white;
+	}
+	.nav_ban li{width:100%;height:200px;display:inline;font-size:25pt; font-weight:bold;
+	margin:100px;
+	}
+	
+
+	.sec_ban2{
+	width:100%;height:130px; float:left;
+	text-align:center;font-size:20pt; font-weight:bold;
+	}
+	.artcle_pic{
+		float:left; width:860px; height:1300px; background-color:white;
+		text-align:center;
+	}
+
+	.cbox{
+		width:100%;height:100px;border-width: 2pt;border-color:black;border-style:solid;float:left;
+	}
+	aside{
+		width:200px;height:750px;
+		border-width: 1pt;border-color:black;border-style:solid;float:left;font-size:13px;
+	}
+	ul{ padding-left: 0px;
+	}
+	#nav li{display:inline;font-size: 15pt;margin: 50px;
+	}
+	footer{
+		margin:0 auto;width:100%;  height: 150px; background-color:gray;float:left;
+	}
+ </style>
+ </head>
+ <body>
+  <header>
+  	
+	<div style="float:left;">
+	풋살은 그린풋살파크 !
+	</div>
+	
+	<div style="float:right;">
+	로그인 | 회원가입 | 마이페이지
+	</div>
+	<div id="logo">
+	로고
+	</div>
+	
+  </header>
+	 <nav>
+		 <ul id=nav>
+		<li style="font-weight:bold;">대관</li> <li>매치/용병</li> <li>리그</li>
+		<li>고객센터</li>
+		</ul>
+	</nav>
+	
+		<div id="carousel1">
+	<ul>
+		<li>
+		<img alt="" src="coffeeimg/banner.png" width="100%" height="400px" />
+		</li>
+		<li>
+		<img alt="" src="coffeeimg/banner2.png" width="100%" height="400px" />
+		</li>
+		
+	</ul>
+	</div>
+	
+	
+		
+		
+		<section>
+
+		<div class="sec_ban2">
+			<ul class="nav_ban" >
+			<li>갤러리메뉴1</li>
+			<li>갤러리메뉴2</li>
+			<li>갤러리메뉴3</li>
+		
+		</ul>
+		</div>
+		<aside>
+		<div id="container">
+
+		<div id="wrap">
+		<div class="product-head"> 
+		  <h1>갤러리 Search</h1> 
+			<div id="form"></div>
+
+			<div class="clear"></div>
+		</div>
+		
+		<ul class="subli"> 
+		<li><img src="products/liverpool.jpg" width="45" height="45" align="absmiddle"/> <a href="#/Liverpool/">Green Computer</a></li> 
+		<li><img src="products/mu.png" width="45" height="45" align="absmiddle"/> <a href="#/Manchester United/">Blue Computer</a></li> 
+		<li><img src="products/mcity.png" width="45" height="45" align="absmiddle"/> <a href="#/Manchester City/">Red Computer</a></li> 
+		<li><img src="products/chelsea.png" width="45" height="45" align="absmiddle"/> <a href="#/Chelsea/">Whiter Computer</a></li> 
+		<li><img src="products/arsenal.png" width="45" height="45" align="absmiddle"/> <a href="#/Arsenal/">Super Computer</a></li> 
+		
+          
+		</ul> 
+		</div> 
+		</div>
+		</aside>
+		<div class="artcle_pic" style="font-size:30pt; font-weight:bold;">
+			갤러리(article)
+			<ul class="pic">
+			<li><img width="200" height="200" src="img/son.jpg">
+			<dl>
+			<dt>손흥민 시즌 1호골</dt>
+			<dd class="nick">SBS Sports</dd>
+			<dd class="date">12:22 조회 3,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son2.jpg">
+			<dl>
+			<dt>손흥민 시즌 2호골</dt>
+			<dd class="nick">Spotv</dd>
+			<dd class="date">12:29 조회 4,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son3.jpg">
+			<dl>
+			<dt>손흥민 시즌 3호골</dt>
+			<dd class="nick">SBS Sprots</dd>
+			<dd class="date">15:45 조회 5,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son4.jpg">
+			<dl>
+			<dt>손흥민 시즌 4호골</dt>
+			<dd class="nick">Spotv</dd>
+			<dd class="date">20:04 조회 6,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son.jpg">
+			<dl>
+			<dt>손흥민 시즌 1호골</dt>
+			<dd class="nick">SBS Sports</dd>
+			<dd class="date">12:22 조회 3,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son2.jpg">
+			<dl>
+			<dt>손흥민 시즌 2호골</dt>
+			<dd class="nick">Spotv</dd>
+			<dd class="date">12:29 조회 4,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son3.jpg">
+			<dl>
+			<dt>손흥민 시즌 3호골</dt>
+			<dd class="nick">SBS Sprots</dd>
+			<dd class="date">15:45 조회 5,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son4.jpg">
+			<dl>
+			<dt>손흥민 시즌 4호골</dt>
+			<dd class="nick">Spotv</dd>
+			<dd class="date">20:04 조회 6,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son.jpg">
+			<dl>
+			<dt>손흥민 시즌 1호골</dt>
+			<dd class="nick">SBS Sports</dd>
+			<dd class="date">12:22 조회 3,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son2.jpg">
+			<dl>
+			<dt>손흥민 시즌 2호골</dt>
+			<dd class="nick">Spotv</dd>
+			<dd class="date">12:29 조회 4,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son3.jpg">
+			<dl>
+			<dt>손흥민 시즌 3호골</dt>
+			<dd class="nick">SBS Sprots</dd>
+			<dd class="date">15:45 조회 5,000,000</dd>
+			</dl>
+			</li>
+			<li><img width="200" height="200" src="img/son4.jpg">
+			<dl>
+			<dt>손흥민 시즌 4호골</dt>
+			<dd class="nick">Spotv</dd>
+			<dd class="date">20:04 조회 6,000,000</dd>
+			</dl>
+			</li>
+			</ul>
+
+
+		</div>
+		
+		
+		<div class="cbox">다음단계로
+						</div>
+	</section>
+
+	<footer>
+		footer
+	</footer>
+ </body>
+</html>

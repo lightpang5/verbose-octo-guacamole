@@ -1,0 +1,34 @@
+객체의 개념은 존재하지만 객체를 직접 만들 필요없고 (사용자 정의 객체 알필요 없이)
+내장 객체를 활용하면 된다.
+
+BOM (브라우저 내장객체)
+DOM (
+
+
+
+22p 윈도우에 대한 예제 
+
+
+윈도우 폼 6  예제 (select) --
+
+
+
+콘솔로 중간중간 캐치하면서 갈 수 있다.
+console.log(sun.opt;ions.length+"jj");
+
+
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+우선 주말 해결 과제 
+
+1 ) 커피빈페이지 완성해보기.
+2 ) 부트스트랩이용해서 만들어놓은 페이지 적용시켜보기
+3 ) 자연재해 기말고사
+4 ) 자연재해 , 응급처치 강의 듣기.
+5 ) 시간나면 회원가입 페이지 나중에 사용하기 편하게 바꿔보기?

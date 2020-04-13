@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ 
+  <title>Document</title>
+<script>
+	function select_method()
+	{
+		var temp = turtle2.answer.value
+
+		if(temp=='')
+		{
+			alert("아무것도 선택하지 않았습니다?")
+			turtle2.answer.focus()
+		}
+		else if(temp =="b" || temp == "B")
+		{
+			alert("맞았습니다.")
+		}
+		
+		else
+		{
+			alert("틀렸어요. 다시 한번 풀어보세요.")
+			turtle2.answer.focus()
+			turtle2.answer.select()
+
+		}
+	}
+
+</script>
+
+ </head>
+ <body onLoad=" turtle2.answer.focus()">
+ 	<b>다음 문제의 답을 대소문자 구분없이 적으시오<b> <BR>
+	다음중 축구선수가 아닌 사람은> <BR>
+	A) 홍명보 B 차범근 C) 마이굴 조단 D) 허정무 <P>
+
+	<form name="turtle2">
+		답 : <input type="text" name="answer">
+			<input type ="button" value="확인" onClick="select_method()">
+
+	</form>
+
+  
+ </body>
+</html>

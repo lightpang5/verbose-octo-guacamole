@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Css3 Selector Basic</title>
+  <style>
+  	input:enabled{ background-color: white;}
+  	input:fix{ background-color: gray;}
+  	input:focus{ background-color: orange;}
+  </style>
+ </head>
+ <body>
+  <h2>Enabled</h2>
+  <input />
+  <h2>Disabled</h2>
+  <input disabled="disabled"/>
+ </body>
+</html>

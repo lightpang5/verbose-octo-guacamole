@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <title>Document</title>
+
+  <script>
+	$(document).ready(function(){
+		$("#showImage").hide();
+		$('#product img').mouseover(function(){
+			$("#showImage").show();
+			var imgSrc="";
+			imgSrc=$(this).attr("src");
+			imgSrc="<img src='"+imgSrc+"' width ='100%'height='100%'/>";
+			$("#showImage").html(imgSrc);
+		});
+		$('#product img').mouseout(function(){
+			$("#showImage").hide();
+		});
+	});
+
+  </script>
+ </head>
+ <body>
+	<div id ="product">
+		<img src ="img/legend_son.gif" width="200" height="200"/>
+		<img src ="img/son2.jpg" width="200"/>
+		<img src ="img/son3.jpg" width="200"/>
+		<div id="showImage" style="border:1px solid red; width:1000px; height:600px;">
+		</div>
+	</div>
+ </body>
+</html>

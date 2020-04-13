@@ -1,0 +1,44 @@
+﻿1.[usertbl]
+
+CREATE TABLE `usertbl` (
+  `userID` varchar(20) NOT NULL,
+  `userName` varchar(20) NOT NULL,
+  `birthYear` int(11) NOT NULL,
+  `addr` varchar(45) NOT NULL,
+  `mobile1` varchar(10) DEFAULT NULL,
+  `mobile2` varchar(10) DEFAULT NULL,
+  `height` smallint(6) DEFAULT NULL,
+  `mDate` date DEFAULT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+[buytbl]
+
+CREATE TABLE `buytbl` (
+  `num` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(20) NOT NULL,
+  `prodName` varchar(45) NOT NULL,
+  `groupName` varchar(45) DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  `amount` smallint(6) NOT NULL,
+  PRIMARY KEY (`num`),
+  KEY `purchaseID_idx` (`userID`),
+  CONSTRAINT `purchaseID` FOREIGN KEY (`userID`) REFERENCES `usertbl` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8
+
+
+2. SELECT userID,userName FROM usertbl where birthYear>=1970 and height>=182;
+
+3. SELECT * FROM usertbl where userName like '%경규%';
+
+4. SELECT addr FROM  usertbl group by addr ;
+
+5. SELECT * FROM  usertbl where addr='경북' or addr='경기' ;
+
+6. SELECT userName,height FROM  usertbl where userName like '신%' ;
+
+7. SELECT * FROM  usertbl where height>=(select height from usertbl where addr='경기') ;
+
+8. SELECT userName,height FROM  usertbl where height>(select height from usertbl where userName='유재석') ;
+
+9. Delete FROM buytbl where prodName='운동화';

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ 
+  <title>Document</title>
+	<script>
+
+	function winClose()
+	{
+		myWindow.close();
+	}
+
+	myWindow = window.open("", "tinyWindow", 'width=150, height=110');
+	myWindow.document.write("이 창은 7초가 지나면 자동으로 닫힙니다");
+	self.setTimeout("winClose()", 7000);
+	</script>
+
+ </head>
+ <body>
+  
+ </body>
+</html>

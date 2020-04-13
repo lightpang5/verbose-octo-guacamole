@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+  <script>
+	window.onload = function(){
+		document.getElementById("btnGetData").onclick = function(){
+			var txtMessage = document.getElementById("txtMessage");
+			var strMessage = "id :" + txtMessage.getAttribute("id");
+			strMessage += "\nvalue :" + txtMessage.getAttribute("value");
+			strMessage += "\ndata :" + document.getElementById("txtMessage").value;
+			alert(strMessage);
+		};
+		document.getElementById("btnCreateElement").onclick = function(){
+			var txtName = document.createElement('input');
+			txtName.setAttribute('type','text');
+			txtName.setAttribute('id',"txtName");
+			txtName.setAttribute('name','txtName');
+			txtName.setAttribute('value','Nice one Sonny');
+			document.body.appendChild(txtName);	
+		};
+	};
+
+  </script>
+ </head>
+ <body>
+	<input type = "text" id = "txtMessage" name ="txtMsg" value ="대한민국"/>
+	<input type = "button" id = "btnGetData" name ="btnGetData" value ="정보얻기"/>
+	<br/>
+	<hr/>
+	<input type = "button" id = "btnCreateElement" name ="btnCreateElement" value ="TextBox 만들기"/>
+ </body>
+</html>

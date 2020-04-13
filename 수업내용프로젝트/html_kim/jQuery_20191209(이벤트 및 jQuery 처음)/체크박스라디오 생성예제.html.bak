@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+  <script>
+	function hobbyCheck( fm ){
+		var str="";
+		for(i=0; i<fm.hobby.length; i++){
+			if( fm.hobby[i].checked ){
+				str += fm.hobby[i].value +" ";
+			}
+		}
+		alert("당신의 취미는 " + str + " 입니다.");
+	}
+	function allCheck( fm ){
+		for(i=0; i< fm.hobby.length ; i++){
+			fm.hobby[i].checked = fm.all.checked;
+		}
+		if(fm.all.checked){
+			document.getElementById("all").innerHTML= "전체해제";
+		}else{
+			document.getElementById("all").innerHTML= "전체선택";
+		}
+	}
+	function nationCheck(fm){
+		for(i=0; i< fm.nation.length; i++){
+			if(fm.nation[i].checked){
+				alert(fm.nation[i].value + "선택했음.");
+				break;
+			}
+		}
+	}
+  </script>
+ </head>
+ <body>
+	<form name="f">
+	<h2> 취미 선택</h2>
+	<input type="checkbox" name="all" value="all" onClick="allCheck(form)"/>
+	<span id = "all"> 전체선택 </span>
+	<br/><br/>
+	취미:
+	<input type="checkbox" name="hobby" value="등산"/> 등산
+	<input type="checkbox" name="hobby" value="낚시"/> 낚시
+	<input type="checkbox" name="hobby" value="수영"/> 수영
+	<input type="checkbox" name="hobby" value="놀기"/> 놀기
+	<input type="checkbox" name="hobby" value="잠자기"/> 잠자기
+	<input type="checkbox" name="hobby" value="먹기"/> 먹기
+	<input type="button"  value="선택" onclick ="hobbyCheck(form)"/> 
+	<hr color="red"/>
+	나라선택:
+	<input type="radio" name="nation" value="한국"/> 한국
+	<input type="radio" name="nation" value="미국"/> 미국
+	<input type="radio" name="nation" value="일본"/> 일본
+	<input type="radio" name="nation" value="중국"/> 중국
+	<input type="radio" name="nation" value="프랑스"/> 프랑스
+	<input type="button"  value="나라선택" onclick ="nationCheck(form)"/> 
+	</form>
+ </body>
+</html>

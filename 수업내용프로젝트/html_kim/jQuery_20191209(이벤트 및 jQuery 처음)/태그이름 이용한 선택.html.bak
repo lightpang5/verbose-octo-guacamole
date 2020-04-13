@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+ </head>
+ <body>
+	<h1>HTML 태그 이름을 이용한 선택</h1>
+	<ul>
+		<li>First Item!</li>
+		<li>Second Item!</li>
+		<li>Third Item!</li>
+		<li>Forth Item!</li>
+		<li>Fifth Item!</li>
+	</ul>
+	<p>Last Item!</p>
+	<script>
+		var selectedItem = document.getElementsByTagName("li");
+		for(var i=0; i<selectedItem.length; i++){
+			selectedItem.item(i).style.color = "red";
+			}
+	</script>
+ </body>
+</html>

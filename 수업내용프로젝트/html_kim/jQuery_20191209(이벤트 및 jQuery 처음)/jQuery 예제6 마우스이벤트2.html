@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <title>Document</title>
+	<script>
+		$(function(){
+			$("#clickBtn").on("click", function(){
+				$("#text").append("버튼을 클릭했어요!<br>");
+			});
+			$("#removeBtn").on("click", function(){
+				$("#clickBtn").off("click");
+				$("#text").append("버튼을 삭제했어요! 마우스클릭 이벤트는 미국갔어요<br>");
+			});
+			
+		});
+
+	</script>
+ </head>
+ <body>
+	<button id = "clickBtn"> 마우스클릭 </button>
+	<button id="removeBtn"> 이벤트 제거 </button>
+	
+	<p id = "text"></p>
+ </body>
+</html>

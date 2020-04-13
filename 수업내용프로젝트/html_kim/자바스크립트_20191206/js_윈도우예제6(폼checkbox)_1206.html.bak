@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+	<script>
+		function Change()
+		{
+			var str=" "
+			if(myForm.check1.checked)
+				str +="야구, "
+			if(myForm.check2.checked)
+				str +="축구, "
+			if(myForm.check3.checked)
+				str +="배구, "
+			if(myForm.check4.checked)
+				str +="농구, "
+			myForm.result.value=str
+		}
+
+	</script>
+  <title>Document</title>
+ </head>
+ <body>
+		좋아하는 운동종목을 모두 선택하고 버튼을 클릭하세요.
+		<form name = "myForm">
+			좋아하는 운동종목들 :
+			<input type = "text" name ="result"><p>
+			<input type = "checkbox" name ="check1" checked >야구
+			<input type = "checkbox" name ="check2" >축구
+			<input type = "checkbox" name ="check3">배구
+			<input type = "checkbox" name ="check4">농구
+			<input type = "button" value ="보기" onClick="Change()">
+
+
+		
+		</form>
+ </body>
+</html>

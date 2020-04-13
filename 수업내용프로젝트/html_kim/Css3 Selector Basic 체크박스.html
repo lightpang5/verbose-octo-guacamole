@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ 
+  <title>Css Selector Basic 체크박스?</title>
+	<style>
+	input[type=checkbox]:checked + div{
+	height:0px;
+	}
+	div{
+	overflow:hidden;
+	width: 950px; height:400px;
+	-ms-transition-duration: 1s;
+	-webkit-transition-duration: 1s;
+	-moz-transition-duration:1s;
+	-o-transition-duration:1s;
+	transition-duration:1s;
+	}
+
+	</style>
+ </head>
+ <body>
+  <input type="checkbox"/>
+  <div>
+  <h1>I like this song</h1>
+  <p>이번 폴킴 디지털 싱글 마음 듣기 좋다</p>
+  </div>
+ </body>
+</html>
